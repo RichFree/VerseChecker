@@ -1,0 +1,32 @@
+{
+  "LessonsOnAssurance": [
+    {
+      "id": 1,
+      "title": "Assurance of Salvation",
+      "reference": "1 John 5:11-12",
+      "verse": "And this is the testimony: God has given us eternal life, and this life is in his Son. He who has the Son has life; he who does not have the Son of God does not have life."
+    },
+    {
+      "id": 2,
+      "title": "Assurance of Answered Prayer",
+      "reference": "John 16:24",
+      "verse": "Until now you have not asked for anything in my name. Ask and you will receive, and your joy will be complete."
+    }
+  ],
+  "TMS60": [
+    {
+      "id": 1,
+      "title": "Christ the Center",
+      "reference": "2 Cor 5:17",
+      "verse": "Therefore, if anyone is in Christ, he is a new creation; the old has gone, the new has come!"
+    }
+  ],
+  "DEP1": [
+    {
+      "id": 1,
+      "title": "Can be assured",
+      "reference": "2 Corinthians 13:5",
+      "verse": "Examine yourselves to see whether you are in the faith; test yourselves.  Do you not realize that Christ Jesus is in you--unless, of course, you fail the test?"
+    }
+  ]
+}
