@@ -1,0 +1,38 @@
+.VerseValidator {
+  padding: 5px;
+  border: 1px;
+  border-style: solid;
+
+}
+
+.title-box {
+  /*padding: 5px;*/
+  height: 3vh;
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.chapter-title-box {
+  /*padding: 5px;*/
+  height: 3vh;
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+
+.verse-box {
+  /*padding: 5px;*/
+  height: 10vh;
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
