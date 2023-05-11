@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./VerseValidator.css"
 
-const VerseValidator = ({ element: { title, chapterTitle, reference, verse } }) => {
+const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } }) => {
   const [inputVerse, setVerse] = useState('')
   const [verseBool, setVerseBool] = useState(false)
   const [inputTitle, setTitle] = useState('')
@@ -51,7 +51,7 @@ const VerseValidator = ({ element: { title, chapterTitle, reference, verse } }) 
   const chapterTitleChange = (e) => {
     const value = e.target.value;
     let string1 = value;
-    let string2 = title;
+    let string2 = chapterTitle;
     string1 = String(string1)
       .replace(/[^\w\s]/g, "")
       .replace(/\s+/g, "")
@@ -72,16 +72,22 @@ const VerseValidator = ({ element: { title, chapterTitle, reference, verse } }) 
 
   let result = "";
 
-  if (verseBool && titleBool) {
-    result = "Correct";
+  if (chapterTitle) {
+    if (chapterTitleBool && titleBool && verseBool) {
+      result = "Correct"
+    } else {
+      result = ""
+    }
   } else {
-    result = "";
+    if (titleBool && verseBool) {
+      result = "Correct"
+    } else {
+      result = ""
+    }
   }
-
-
   return (
     <div className="VerseValidator">
-      <h2>{reference}</h2>
+      <h2>{pack} - {reference}</h2>
 
       {chapterTitle && (
         <>
@@ -122,7 +128,7 @@ const VerseValidator = ({ element: { title, chapterTitle, reference, verse } }) 
 
       <ul>{result}</ul>
 
-      <button onClick={() => setHintBool(!hintBool)}>Show hint:</button>
+      <button onClick={() => setHintBool(!hintBool)}>Show Answer:</button>
 
       {hintBool && (
         <>

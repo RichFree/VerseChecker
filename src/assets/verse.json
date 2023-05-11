@@ -1,30 +1,35 @@
 {
   "loa": [
     {
+      "pack": "Lessons on Assurance",
       "title": "Assurance of Salvation",
       "chapterTitle": "",
       "reference": "1 John 5:11-12",
       "verse": "And this is the testimony: God has given us eternal life, and this life is in his Son. He who has the Son has life; he who does not have the Son of God does not have life."
     },
     {
+      "pack": "Lessons on Assurance",
       "title": "Assurance of Answered Prayer",
       "chapterTitle": "",
       "reference": "John 16:24",
       "verse": "Until now you have not asked for anything in my name. Ask and you will receive, and your joy will be complete."
     },
     {
+      "pack": "Lessons on Assurance",
       "title": "Assurance of Victory",
       "chapterTitle": "",
       "reference": "1 Corinthians 10:13",
       "verse": "No temptation has seized you except what is common to man. And God is faithful; he will not let you be tempted beyond what you can bear. But when you are tempted, he will also provide a way out so that you can stand up under it."
     },
     {
+      "pack": "Lessons on Assurance",
       "title": "Assurance of Forgiveness",
       "chapterTitle": "",
       "reference": "1 John 1:9",
       "verse": "If we confess our sins, he is faithful and just and will forgive us our sins and purify us from all unrighteousness."
     },
     {
+      "pack": "Lessons on Assurance",
       "title": "Assurance of Guidance",
       "chapterTitle": "",
       "reference": "Proverbs 3:5-6",
@@ -33,6 +38,7 @@
   ],
   "tms-60-pack-a": [
     {
+      "pack": "TMS 60 Pack A",
       "title": "Christ the Center",
       "chapterTitle": "Living the New Life",
       "reference": "2 Cor 5:17",
@@ -41,6 +47,7 @@
   ],
   "tms-60-pack-b": [
     {
+      "pack": "TMS 60 Pack B",
       "title": "All Have Sinned",
       "chapterTitle": "Proclaiming Christ",
       "reference": "Romans 3:23",
@@ -49,6 +56,7 @@
   ],
   "tms-60-pack-c": [
     {
+      "pack": "TMS 60 Pack C",
       "title": "His Spirit",
       "chapterTitle": "Reliance on God's Resources",
       "reference": "1 Corinthians 3:16",
@@ -57,6 +65,7 @@
   ],
   "tms-60-pack-d": [
     {
+      "pack": "TMS 60 Pack D",
       "title": "Put Christ First",
       "chapterTitle": "Being Christ's Disciple",
       "reference": "Matthew 6:33",
@@ -65,6 +74,7 @@
   ],
   "tms-60-pack-e": [
     {
+      "pack": "TMS 60 Pack E",
       "title": "Love",
       "chapterTitle": "Growth in Christlikeness",
       "reference": "John 13:34-35",
@@ -73,6 +83,7 @@
   ],
   "dep-1": [
     {
+      "pack": "DEP 1",
       "title": "Can be assured",
       "chapterTitle": "",
       "reference": "2 Corinthians 13:5",
@@ -81,6 +92,7 @@
   ],
   "dep-2": [
     {
+      "pack": "DEP 2",
       "title": "God wants to fellowship with us",
       "chapterTitle": "why do we have quiet time",
       "reference": "1 Corinthians 1:9",
@@ -89,6 +101,7 @@
   ],
   "dep-3": [
     {
+      "pack": "DEP 3",
       "title": "Inspired by God",
       "chapterTitle": "Authority of the Word",
       "reference": "2 Timothy 3:16",
@@ -97,10 +110,228 @@
   ],
   "dep-4": [
     {
+      "pack": "DEP 4",
       "title": "Cease not to pray",
       "chapterTitle": "Command of Prayer",
       "reference": "1 Thessalonians 5:17 (KJV)",
       "verse": "Pray without ceasing."
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Devote yourself to prayer",
+      "chapterTitle": "Command of Prayer",
+      "reference": "Colossians 4:2",
+      "verse": "Devote yourselves to prayer, being watchful and thankful."
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Be alert to pray",
+      "chapterTitle": "Command of Prayer",
+      "reference": "1 Peter 4:7",
+      "verse": "The end of all things is near. Therefore be clear minded and self-controlled so that you can pray."
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Pray for everyone",
+      "chapterTitle": "Command of Prayer",
+      "reference": "1 Timothy 2:1-2",
+      "verse": "I urge, then, first of all, that requests, prayers, intercession and thanksgiving be made for everyone--for kings and all those in authority, that we may live peaceful and quiet lives in all godliness and holiness."
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Promise to answer",
+      "chapterTitle": "Promises and blessings of prayer",
+      "reference": "John 14:13-14",
+      "verse": "And I will do whatever you ask in my name, so that the Son may bring glory to the Father. You may ask me for anything in my name, and I will do it."
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Immeasurable answer",
+      "chapterTitle": "Promises and blessings of prayer",
+      "reference": "Ephesians 3:20",
+      "verse": "Now to him who is able to do immeasurably more than all we ask or imagine, according to his power that is at work within us"
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Understanding God's will",
+      "chapterTitle": "Promises and blessings of prayer",
+      "reference": "Jeremiah 33:3",
+      "verse": "Call to me and I will answer you and tell you great and unsearchable things you do not know."
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Getting the wisdom from God",
+      "chapterTitle": "Promises and blessings of prayer",
+      "reference": "James 1:5",
+      "verse": "If any of you lacks wisdom, he should ask God, who gives generously to all without finding fault, and it will be given to him."
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Delivering us from fears",
+      "chapterTitle": "Promises and blessings of prayer",
+      "reference": "Psalms 34:4",
+      "verse": "I sought the LORD, and he answered me; he delivered me from all my fears."
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Delivering us from trouble",
+      "chapterTitle": "Promises and blessings of prayer",
+      "reference": "Psalms 50:15",
+      "verse": "and call upon me in the day of trouble; I will deliver you, and you will honor me." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Giving us boldness",
+      "chapterTitle": "Promises and blessings of prayer",
+      "reference": "Acts 4:31",
+      "verse": "After they prayed, the place where they were meeting was shaken. And they were all filled with the Holy Spirit and spoke the word of God boldly." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Giving us opportunities for the gospel",
+      "chapterTitle": "Promises and blessings of prayer",
+      "reference": "Colossians 4:3",
+      "verse": "And pray for us, too, that God may open a door for our message, so that we may proclaim the mystery of Christ, for which I am in chains." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Pray in the name of Jesus",
+      "chapterTitle": "Conditions for answered prayer",
+      "reference": "John 16:24",
+      "verse": "Until now you have not asked for anything in my name. Ask and you will receive, and your joy will be complete." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Pray in faith",
+      "chapterTitle": "Conditions for answered prayer",
+      "reference": "Matthew 21:22",
+      "verse": "If you believe, you will receive whatever you ask for in prayer." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Pray in the Spirit",
+      "chapterTitle": "Conditions for answered prayer",
+      "reference": "Ephesians 6:18",
+      "verse": "And pray in the Spirit on all occasions with all kinds of prayers and requests. With this in mind, be alert and always keep on praying for all the saints." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Pray in God's will",
+      "chapterTitle": "Conditions for answered prayer",
+      "reference": "1 John 5:14-15",
+      "verse": "This is the confidence we have in approaching God: that if we ask anything according to his will, he hears us. And if we know that he hears us--whatever we ask--we know that we have what we asked of him." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Confess and renounce the sin",
+      "chapterTitle": "Conditions for answered prayer",
+      "reference": "Psalms 66:18",
+      "verse": "If I had cherished sin in my heart, the Lord would not have listened" 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Obey the Lord",
+      "chapterTitle": "Conditions for answered prayer",
+      "reference": "1 John 3:22",
+      "verse": "and receive from him anything we ask, because we obey his commands and do what pleases him." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Pray with one accord",
+      "chapterTitle": "Conditions for answered prayer",
+      "reference": "Matthew 18:19",
+      "verse": "Again, I tell you that if two of you on earth agree about anything you ask for, it will be done for you by my Father in heaven." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Ask and act",
+      "chapterTitle": "Conditions for answered prayer",
+      "reference": "Matthew 7:7-8",
+      "verse": "Ask and it will be given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; he who seeks finds; and to him who knocks, the door will be opened." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Pray with all your heart",
+      "chapterTitle": "Conditions for answered prayer",
+      "reference": "Jeremiah 29:12-13",
+      "verse": "Then you will call upon me and come and pray to me, and I will listen to you. You will seek me and find me when you seek me with all your heart." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Pray in claiming the promise",
+      "chapterTitle": "Conditions for answered prayer",
+      "reference": "Nehemiah 1:8-9",
+      "verse": "Remember the instruction you gave your servant Moses, saying, 'If you are unfaithful, I will scatter you among the nations, but if you return to me and obey my commands, then even if your exiled people are at the farthest horizon, I will gather them from there and bring them to the place I have chosen as a dwelling for my Name.'" 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Praying at the risk of life",
+      "chapterTitle": "Examples of prayer",
+      "reference": "Daniel 6:10",
+      "verse": "Now when Daniel learned that the decree had been published, he went home to his upstairs room where the windows opened toward Jerusalem. Three times a day he got down on his knees and prayed, giving thanks to his God, just as he had done before." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Giving priority to prayer",
+      "chapterTitle": "Examples of prayer",
+      "reference": "Luke 5:15-16",
+      "verse": "Yet the news about him spread all the more, so that crowds of people came to hear him and to be healed of their sicknesses.  But Jesus often withdrew to lonely places and prayed." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Praying all through the night",
+      "chapterTitle": "Examples of prayer",
+      "reference": "Luke 6:12",
+      "verse": "One of those days Jesus went out to a mountainside to pray, and spent the night praying to God." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Praying earnestly",
+      "chapterTitle": "Examples of prayer",
+      "reference": "James 5:17-18",
+      "verse": "Elijah was a man just like us. He prayed earnestly that it would not rain, and it did not rain on the land for three and a half years.  Again he prayed, and the heavens gave rain, and the earth produced its crops." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Praying in the midst of hardship",
+      "chapterTitle": "Examples of prayer",
+      "reference": "Acts 16:25",
+      "verse": "About midnight Paul and Silas were praying and singing hymns to God, and the other prisoners were listening to them." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Praising",
+      "chapterTitle": "Prayer Hand Illustration",
+      "reference": "1 Chronicles 29:11-13",
+      "verse": "Yours, O LORD, is the greatness and the power and the glory and the majesty and the splendor, for everything in heaven and earth is yours.  Yours, O LORD, is the kingdom; you are exalted as head over all.  Wealth and honor come from you; you are the ruler of all things. In your hands are strength and power to exalt and give strength to all.  Now, our God, we give you thanks, and praise your glorious name." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Intercession",
+      "chapterTitle": "Prayer Hand Illustration",
+      "reference": "1 Timothy 2:1-2",
+      "verse": "I urge, then, first of all, that requests, prayers, intercession and thanksgiving be made for everyone-- for kings and all those in authority, that we may live peaceful and quiet lives in all godliness and holiness." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Thanksgiving",
+      "chapterTitle": "Prayer Hand Illustration",
+      "reference": "1 Thessalonians 5:18",
+      "verse": "give thanks in all circumstances, for this is God's will for you in Christ Jesus." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Confession",
+      "chapterTitle": "Prayer Hand Illustration",
+      "reference": "1 John 1:9",
+      "verse": "If we confess our sins, he is faithful and just and will forgive us our sins and purify us from all unrighteousness." 
+    },
+    {
+      "pack": "DEP 4",
+      "title": "Supplication",
+      "chapterTitle": "Prayer Hand Illustration",
+      "reference": "Philippians 4:6-7",
+      "verse": "Do not be anxious about anything, but in everything, by prayer and petition, with thanksgiving, present your requests to God.  And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus." 
     }
   ]
 
