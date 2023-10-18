@@ -594,7 +594,7 @@
       "verse": "And you also were included in Christ when you heard the word of truth, the gospel of your salvation. Having believed, you were marked in him with a seal, the promised Holy Spirit" 
     }
   ],
-  "dep-2": [
+  "dep-2-part-a": [
     {
       "pack": "DEP 2",
       "title": "God wants to fellowship with us",
@@ -650,7 +650,9 @@
       "chapterTitle": "Why do we have Quiet Time",
       "reference": "Psalm 143:8,10",
       "verse": "Let the morning bring me word of your unfailing love, for I have put my trust in you. Show me the way I should go, for to you I lift up my soul.  Teach me to do your will, for you are my God; may your good Spirit lead me on level ground."
-    },
+    }
+  ],
+  "dep-2-part-b": [
     {
       "pack": "DEP 2",
       "title": "Looking on the Lord",
@@ -748,7 +750,9 @@
       "chapterTitle": "What is Quiet Time",
       "reference": "Psalms 107:9",
       "verse": "for he satisfies the thirsty and fills the hungry with good things." 
-    },
+    }
+  ],
+  "dep-2-part-c": [
     {
       "pack": "DEP 2",
       "title": "Jesus - praying very early in the morning",
@@ -778,7 +782,7 @@
       "verse": "He did not say anything to them without using a parable. But when he was alone with his own disciples, he explained everything." 
     }
   ],
-  "dep-3": [
+  "dep-3-part-a": [
     {
       "pack": "DEP 3",
       "title": "Inspired by God",
@@ -848,7 +852,9 @@
       "chapterTitle": "Authority of the Word",
       "reference": "Luke 24:27",
       "verse": "And beginning with Moses and all the Prophets, he explained to them what was said in all the Scriptures concerning himself." 
-    },
+    }
+  ],
+  "dep-3-part-b": [
     {
       "pack": "DEP 3",
       "title": "Making us born again",
@@ -925,7 +931,9 @@
       "chapterTitle": "Value of the Word",
       "reference": "Hebrews 4:12",
       "verse": "For the word of God is living and active. Sharper than any double--edged sword, it penetrates even to dividing soul and spirit, joints and marrow; it judges the thoughts and attitudes of the heart." 
-    },
+    }
+  ],
+  "dep-3-part-c": [
     {
       "pack": "DEP 3",
       "title": "Search the Word every day",
@@ -961,7 +969,9 @@
       "chapterTitle": "Attitude to the Word",
       "reference": "Luke 5:5-6",
       "verse": "Simon answered, Master, we've worked hard all night and haven't caught anything. But because you say so, I will let down the nets.  When they had done so, they caught such a large number of fish that their nets began to break."
-    },
+    }
+  ],
+  "dep-3-part-d": [
     {
       "pack": "DEP 3",
       "title": "Hearing",
@@ -1033,7 +1043,7 @@
       "verse": "Do not let this Book of the Law depart from your mouth; meditate on it day and night, so that you may be careful to do everything written in it. Then you will be prosperous and successful."
     }
   ],
-  "dep-4": [
+  "dep-4-part-a": [
     {
       "pack": "DEP 4",
       "title": "Cease not to pray",
@@ -1061,7 +1071,9 @@
       "chapterTitle": "Command of Prayer",
       "reference": "1 Timothy 2:1-2",
       "verse": "I urge, then, first of all, that requests, prayers, intercession and thanksgiving be made for everyone--for kings and all those in authority, that we may live peaceful and quiet lives in all godliness and holiness."
-    },
+    }
+  ],
+  "dep-4-part-b": [
     {
       "pack": "DEP 4",
       "title": "Promise to answer",
@@ -1117,7 +1129,9 @@
       "chapterTitle": "Promises and blessings of prayer",
       "reference": "Colossians 4:3",
       "verse": "And pray for us, too, that God may open a door for our message, so that we may proclaim the mystery of Christ, for which I am in chains." 
-    },
+    }
+  ],
+  "dep-4-part-c": [
     {
       "pack": "DEP 4",
       "title": "Pray in the name of Jesus",
@@ -1187,7 +1201,9 @@
       "chapterTitle": "Conditions for answered prayer",
       "reference": "Nehemiah 1:8-9",
       "verse": "Remember the instruction you gave your servant Moses, saying, 'If you are unfaithful, I will scatter you among the nations, but if you return to me and obey my commands, then even if your exiled people are at the farthest horizon, I will gather them from there and bring them to the place I have chosen as a dwelling for my Name.'" 
-    },
+    }
+  ],
+  "dep-4-part-d": [
     {
       "pack": "DEP 4",
       "title": "Praying at the risk of life",
@@ -1222,7 +1238,9 @@
       "chapterTitle": "Examples of prayer",
       "reference": "Acts 16:25",
       "verse": "About midnight Paul and Silas were praying and singing hymns to God, and the other prisoners were listening to them." 
-    },
+    }
+  ],
+  "dep-4-part-e": [
     {
       "pack": "DEP 4",
       "title": "Praising",

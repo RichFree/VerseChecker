@@ -33,30 +33,54 @@ const ArrayTester = ({ array }) => {
 
 const nodes = [
   {
-    value: 'loa',
-    label: 'Lessons on Assurance'
+    value: "loa",
+    label: "Lessons on Assurance",
   },
   {
-    value: 'tms60',
-    label: 'TMS60',
+    value: "tms60",
+    label: "TMS60",
     children: [
-        { value: 'tms-60-pack-a', label: 'Pack A' },
-        { value: 'tms-60-pack-b', label: 'Pack B' },
-        { value: 'tms-60-pack-c', label: 'Pack C' },
-        { value: 'tms-60-pack-d', label: 'Pack D' },
-        { value: 'tms-60-pack-e', label: 'Pack E' }
-    ]
+      { value: "tms-60-pack-a", label: "Living the New Life" },
+      { value: "tms-60-pack-b", label: "Proclaiming Christ" },
+      { value: "tms-60-pack-c", label: "Reliance on God's Resources" },
+      { value: "tms-60-pack-d", label: "Being Christ's Disciple" },
+      { value: "tms-60-pack-e", label: "Growth in Christlikeness" },
+    ],
   },
   {
-    value: 'dep',
-    label: 'DEP',
+    value: "dep-1",
+    label: "DEP 1",
+  },
+  {
+    value: "dep-2",
+    label: "DEP 2",
     children: [
-      { value: 'dep-1', label: 'DEP 1' },
-      { value: 'dep-2', label: 'DEP 2' },
-      { value: 'dep-3', label: 'DEP 3' },
-      { value: 'dep-4', label: 'DEP 4' }
-    ]
-  }
+      { value: "dep-2-part-a", label: "Why do we have Quiet Time?" },
+      { value: "dep-2-part-b", label: "What is Quiet Time?" },
+      { value: "dep-2-part-c", label: "Examples of Quiet Time" },
+    ],
+  },
+  {
+    value: "dep-3",
+    label: "DEP 3",
+    children: [
+      { value: "dep-3-part-a", label: "Authority of the Word" },
+      { value: "dep-3-part-b", label: "Value of the Word" },
+      { value: "dep-3-part-c", label: "Attitude to the Word" },
+      { value: "dep-3-part-d", label: "How to take in the Word (Word Hand Illustration)" }
+    ],
+  },
+  {
+    value: "dep-4",
+    label: "DEP 4",
+    children: [
+      { value: "dep-4-part-a", label: "Command of Prayer" },
+      { value: "dep-4-part-b", label: "Promises and Blessings of Prayer" },
+      { value: "dep-4-part-c", label: "Conditions for Answered Prayer" },
+      { value: "dep-4-part-d", label: "Examples of Prayer" },
+      { value: "dep-4-part-e", label: "Prayer Hand Illustration" }
+    ],
+  },
 ];
 
 const CheckboxWidget = ({checked, expanded, setChecked, setExpanded}) => {
@@ -83,6 +107,7 @@ function App() {
   // 1. packObj.pack for the pack name 
   // 2. packObj.include for whether to include the pack
   const packObjList = packList.map((element) => {
+    // create object for each element in VerseData key list
     const packObj = new Object();
     packObj.pack = element;
     packObj.include = false;
@@ -128,13 +153,6 @@ function App() {
         setExpanded={setExpanded}
       />
 
-      {/*<div className="PackDisplay">
-        <h1>Packs Tested:</h1>
-        {checked
-          .map((element) => (
-            <li key={element}>{element}</li>
-          ))}
-        </div>*/}
       <h1>Verses:</h1>
       <GenerateTestList packs={checked} testCount={testCount} />
     </div>
