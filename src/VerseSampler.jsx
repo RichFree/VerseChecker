@@ -139,6 +139,16 @@ function App() {
   };
 
 
+  // refresh button for refresh
+  const RefreshButton = ({ onClick }) => {
+    return <button onClick={onClick}>Shuffle</button>;
+  };
+  // refresh variables where incrementing state forces refresh
+  const [refreshKey, setRefreshKey] = useState(0);
+  const handleRefresh = () => {
+    // Increment the key to force a re-render
+    setRefreshKey(refreshKey => refreshKey + 1);
+  };
   
   return (
     <div className="App">
@@ -163,6 +173,7 @@ function App() {
           onChange={handleShuffleCheckboxChange}
         />
       </h2>
+      <p>(Otherwise cards will appear in sequential order)</p>
 
       <h2>Pick Your Packs:</h2>
       <CheckboxWidget
@@ -171,6 +182,15 @@ function App() {
         setChecked={setChecked}
         setExpanded={setExpanded}
       />
+
+      <div key={refreshKey}>
+        {toShuffle ? 
+        <>
+          <h2>Shuffle Cards:</h2>
+          <RefreshButton onClick={handleRefresh} />
+        </>: 
+        <p></p>}
+      </div>
 
       <h1>Verses:</h1>
       <GenerateTestList
