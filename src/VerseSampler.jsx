@@ -11,13 +11,13 @@ import _ from 'underscore';
 import './VerseSampler.css'
 import VerseValidator from "./VerseValidator";
 
-const GenerateTestList = ({ packs, testCount}) => {
+const GenerateTestList = ({ packs, testCount, toShuffle}) => {
   let testList = packs.reduce(
                           // grab all elements included checked in "packs"
                           (accumulator, currentValue) => accumulator.concat(VerseData[currentValue]),
                           new Array()
                         );
-  testList = _.sample(testList, testCount);
+  testList = toShuffle ? _.sample(testList, testCount) : _.first(testList, testCount);
   return (
     <ArrayTester array={testList} />
   )
@@ -128,12 +128,22 @@ function App() {
   // variables for pack selection
   const [checked, setChecked] = useState([])
   const [expanded, setExpanded] = useState([])
+  
+
+  // state for toShuffle
+  const [toShuffle, setShuffle] = useState(false);
+  // Function to handle checkbox change
+  const handleShuffleCheckboxChange = () => {
+    // Toggle the state when the checkbox is changed
+    setShuffle(!toShuffle);
+  };
 
 
   
   return (
     <div className="App">
-      <h1>Pick Number of Verses:</h1>
+      <h1>Scripture Memory Tester</h1>
+      <h2>Pick Number of Verses:</h2>
       <label className="test-count-box-label" htmlFor="testCountBox">
         Number of Verses Tested:
       </label>
@@ -145,7 +155,16 @@ function App() {
         onChange={testCountChange}
       />
 
-      <h1>Pick Your Packs:</h1>
+      <h2>
+        Set Shuffle:
+        <input
+          type="checkbox"
+          checked={toShuffle}
+          onChange={handleShuffleCheckboxChange}
+        />
+      </h2>
+
+      <h2>Pick Your Packs:</h2>
       <CheckboxWidget
         checked={checked}
         expanded={expanded}
@@ -154,7 +173,11 @@ function App() {
       />
 
       <h1>Verses:</h1>
-      <GenerateTestList packs={checked} testCount={testCount} />
+      <GenerateTestList
+        packs={checked}
+        testCount={testCount}
+        toShuffle={toShuffle}
+      />
     </div>
   );
 }  
