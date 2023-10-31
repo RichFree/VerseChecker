@@ -44,7 +44,7 @@ const nodes = [
       { value: "tms-60-pack-b", label: "Proclaiming Christ" },
       { value: "tms-60-pack-c", label: "Reliance on God's Resources" },
       { value: "tms-60-pack-d", label: "Being Christ's Disciple" },
-      { value: "tms-60-pack-e", label: "Growth in Christlikeness" },
+      { value: "tms-60-pack-e", label: "Growth in Christlikeness" }
     ],
   },
   {
@@ -57,7 +57,7 @@ const nodes = [
     children: [
       { value: "dep-2-part-a", label: "Why do we have Quiet Time?" },
       { value: "dep-2-part-b", label: "What is Quiet Time?" },
-      { value: "dep-2-part-c", label: "Examples of Quiet Time" },
+      { value: "dep-2-part-c", label: "Examples of Quiet Time" }
     ],
   },
   {
@@ -79,6 +79,17 @@ const nodes = [
       { value: "dep-4-part-c", label: "Conditions for Answered Prayer" },
       { value: "dep-4-part-d", label: "Examples of Prayer" },
       { value: "dep-4-part-e", label: "Prayer Hand Illustration" }
+    ],
+  },
+  {
+    value: "dep-5",
+    label: "DEP 5",
+    children: [
+      { value: "dep-5-part-a", label: "Foundation of Christian Fellowship" },
+      { value: "dep-5-part-b", label: "Importance of fellowship" },
+      { value: "dep-5-part-c", label: "Essentials of fellowship" },
+      { value: "dep-5-part-d", label: "Attitude of fellowship" },
+      { value: "dep-5-part-e", label: "Problem solving in fellowship" }
     ],
   },
 ];
