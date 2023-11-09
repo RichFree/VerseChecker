@@ -25,7 +25,7 @@ const GenerateTestList = ({ packs, testCount, toShuffle}) => {
 
 const ArrayTester = ({ array }) => {
   const list = array.map((element) => (
-    <VerseValidator key={element.reference} element={element} />
+    <VerseValidator key={element.pack + element.title + element.reference} element={element} />
   ))
   return list
 }
