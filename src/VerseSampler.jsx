@@ -209,6 +209,11 @@ function App() {
         testCount={testCount}
         toShuffle={toShuffle}
       />
+
+    <hr />
+
+    <p><x-small>last updated: November 9, 2023</x-small></p>
+
     </div>
   );
 }  
