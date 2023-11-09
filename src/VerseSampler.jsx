@@ -212,7 +212,7 @@ function App() {
 
     <hr />
 
-    <p><x-small>last updated: November 9, 2023</x-small></p>
+    <p><x-small>last updated: November 10, 2023</x-small></p>
 
     </div>
   );
