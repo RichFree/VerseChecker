@@ -129,7 +129,7 @@ function App() {
 
   // initialize state variable testCount
   // purpose: to set number of verses to test
-  const [testCount, setTestCount] = useState(5)
+  const [testCount, setTestCount] = useState(15)
   const testCountChange = (e) => {
     const value = e.target.value
     setTestCount(value)
@@ -173,8 +173,11 @@ function App() {
         type="text"
         id="testCountBox"
         name="testCountBox"
+        placeholder={testCount}
         onChange={testCountChange}
       />
+
+      <p>(It will only give you as many verses as there are in selected packs)</p>
 
       <h2>
         Set Shuffle:
