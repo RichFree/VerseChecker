@@ -1,26 +1,28 @@
+.App {
+    max-width: 400px;
+}
 .VerseValidator {
-  padding: 5px;
-  border: 1px;
-  border-style: solid;
-  max-width: 618px;
+  padding-block: 1px 10px;
+  border-top: 1px solid black;
+  max-width: 400px;
 }
 
 .title-box {
   /*padding: 5px;*/
-  height: 3vh;
+  height: 5vh;
   display: block;
   width: 99%;
-  border: 0;
+  border: 1px solid grey;
   border-radius: 5px;
   font-size: 15px;
 }
 
 .chapter-title-box {
   /*padding: 5px;*/
-  height: 3vh;
+  height: 5vh;
   display: block;
   width: 99%;
-  border: 0;
+  border: 1px solid grey;
   border-radius: 5px;
   font-size: 15px;
 }
@@ -31,7 +33,7 @@
   height: 10vh;
   display: block;
   width: 99%;
-  border: 0;
+  border: 1px solid grey;
   border-radius: 5px;
   font-size: 15px;
 }
