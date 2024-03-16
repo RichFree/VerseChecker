@@ -10,7 +10,7 @@
 }
 
 .reference-box {
-  min-width:400px;
+  max-width:400px;
   height: 5vh;
   display: block;
   width: 99%;
@@ -20,7 +20,7 @@
 }
 
 .chapter-title-box {
-  min-width:400px;
+  max-width:400px;
   height: 5vh;
   display: block;
   width: 99%;
@@ -40,8 +40,7 @@
 }
 
 .verse-box {
-  /*padding: 5px;*/
-  min-width:400px;
+  max-width:400px;
   height: 10vh;
   display: block;
   width: 99%;
@@ -50,17 +49,19 @@
   font-size: 15px;
 }
 
-.verse-box {
-  /*padding: 5px;*/
-  min-width:400px;
-  height: 10vh;
-  display: block;
-  width: 99%;
-  border: 1px solid grey;
-  border-radius: 5px;
-  font-size: 15px;
+.answer-button-box {
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
 }
 
+.answer-box {
+  width: 80%;
+}
+
+.diff-box {
+  width: 80%;
+}
 
 .correct {
   background-color: #e6ffe6; /* Change the background color as needed */

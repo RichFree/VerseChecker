@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./VerseValidator.css";
+import { StringDiff } from "react-string-diff";
 
 
 // function to render and handle logic of each of the cells
@@ -14,6 +15,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
   const [inputVerse, setVerse] = useState('')
   const [verseBool, setVerseBool] = useState(false)
   const[hintBool, setHintBool] = useState(false)
+  const[diffBool, setDiffBool] = useState(false)
 
 
   // function to check correctness of verse input
@@ -96,39 +98,54 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
     setChapterTitleBool(bool);
   };
 
+  const DiffViewer = ({oldValue, newValue}) => {
+    const string1 = String(oldValue)
+          .replace(/[^\w\s]/g, "")
+          .toLowerCase();
+
+    const string2 = String(newValue)
+              .replace(/[^\w\s]/g, "")
+              .toLowerCase();
+
+    return (<StringDiff oldValue={string1} newValue={string2} diffMethod="diffWords" />)
+  }
+
 
   return (
     <div className="VerseValidator">
+      {/* toggle hiding reference */}
       {toHideReference ? (
         <div>
-        <label className="reference-label" htmlFor="referenceBox">
-          Input Verse Reference:
-        </label>
-        <textarea
-          className={`reference-box${referenceBool ? ' correct' : ''}`}
-          type="text"
-          id="referenceBox"
-          name="referenceBox"
-          onChange={referenceChange}
-        />
+          <label className="reference-label" htmlFor="referenceBox">
+            Input Verse Reference:
+          </label>
+          <textarea
+            className={`reference-box${referenceBool ? " correct" : ""}`}
+            type="text"
+            id="referenceBox"
+            name="referenceBox"
+            onChange={referenceChange}
+          />
         </div>
-
       ) : (
-        <h2>{pack} - {reference}</h2>
+        <h2>
+          {pack} - {reference}
+        </h2>
       )}
 
+      {/* toggle chapterTitle */}
       {chapterTitle && (
         <div>
-        <label className="main-title-box-label" htmlFor="chapterTitleBox">
-          Input Chapter Title:
-        </label>
-        <textarea
-          className={`chapter-title-box${chapterTitleBool ? ' correct' : ''}`}
-          type="text"
-          id="chapterTitleBox"
-          name="chapterTitleBox"
-          onChange={chapterTitleChange}
-        />
+          <label className="main-title-box-label" htmlFor="chapterTitleBox">
+            Input Chapter Title:
+          </label>
+          <textarea
+            className={`chapter-title-box${chapterTitleBool ? " correct" : ""}`}
+            type="text"
+            id="chapterTitleBox"
+            name="chapterTitleBox"
+            onChange={chapterTitleChange}
+          />
         </div>
       )}
 
@@ -137,7 +154,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
         Input Title:
       </label>
       <textarea
-        className={`title-box${titleBool ? ' correct' : ''}`}
+        className={`title-box${titleBool ? " correct" : ""}`}
         type="text"
         id="titleBox"
         name="titleBox"
@@ -149,24 +166,56 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
         Input Verse:
       </label>
       <textarea
-        className={`verse-box${verseBool ? ' correct' : ''}`}
+        className={`verse-box${verseBool ? " correct" : ""}`}
         type="text"
         id="verseBox"
         name="verseBox"
         onChange={verseChange}
       />
-      
-      {/* button to toggle show answer*/} 
-      <button onClick={() => setHintBool(!hintBool)}>Show Answer:</button>
 
-      {/* This shows the answers*/} 
+      {/* button to toggle show answer*/}
+      <div className="answer-button-box">
+        <button onClick={() => setHintBool(!hintBool)}>Show Answer:</button>
+        <button onClick={() => setDiffBool(!diffBool)}>Show Diff:</button>
+      </div>
+
+      {/* This shows the answers*/}
       {hintBool && (
-        <>
-          <p>{reference}</p>
-          <p>{chapterTitle}</p>
-          <p>{title}</p>
-          <p>{verse}</p>
-        </>
+        <div className="answer-box">
+          <h3>Answers</h3>
+          <p>Reference:<br />{reference}</p>
+          {chapterTitle && (
+            <>
+              <p>ChapterTitle<br />{chapterTitle}</p>
+            </>
+          )}
+          <p>Title:<br />{title}</p>
+          <p>Verse:<br />{verse}</p>
+        </div>
+      )}
+
+      {/* This shows the difference between given and input answers*/}
+      {diffBool && (
+        <div className="diff-box">
+          <h3>Differences</h3>
+          {chapterTitle && (
+            <div>
+              ChapterTitle:
+              <DiffViewer
+                oldValue={chapterTitle}
+                newValue={inputChapterTitle}
+              />
+            </div>
+          )}
+          <p></p>
+          <div>
+            Title: <DiffViewer oldValue={title} newValue={inputTitle} />
+          </div>
+          <p></p>
+          <div>
+            Verse: <DiffViewer oldValue={verse} newValue={inputVerse} />
+          </div>
+        </div>
       )}
     </div>
   );
