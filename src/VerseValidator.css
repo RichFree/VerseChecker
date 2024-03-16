@@ -9,6 +9,16 @@
   max-width: 400px;
 }
 
+.reference-box {
+  min-width:400px;
+  height: 5vh;
+  display: block;
+  width: 99%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
 .chapter-title-box {
   min-width:400px;
   height: 5vh;

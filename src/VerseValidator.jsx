@@ -1,15 +1,39 @@
 import { useState } from "react";
-import "./VerseValidator.css"
+import "./VerseValidator.css";
+
 
 // function to render and handle logic of each of the cells
-const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } }) => {  // useful use of destructuring here
-  const [inputVerse, setVerse] = useState('')
-  const [verseBool, setVerseBool] = useState(false)
-  const [inputTitle, setTitle] = useState('')
-  const [titleBool, setTitleBool] = useState(false)
+const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference}) => {  // useful use of destructuring here
+
+  const [inputReference, setReference] = useState('')
+  const [referenceBool, setReferenceBool] = useState(false)
   const [inputChapterTitle, setChapterTitle] = useState('')
   const [chapterTitleBool, setChapterTitleBool] = useState(false)
+  const [inputTitle, setTitle] = useState('')
+  const [titleBool, setTitleBool] = useState(false)
+  const [inputVerse, setVerse] = useState('')
+  const [verseBool, setVerseBool] = useState(false)
   const[hintBool, setHintBool] = useState(false)
+
+
+  // function to check correctness of verse input
+  // so far only perform checking on full spelling of reference names
+  const referenceChange = (e) => {
+
+    const value = e.target.value;
+
+    const string1 = String(value)
+      .replace(/\s+/g, "")
+      .toLowerCase();
+    const string2 = String(reference)
+      .replace(/\s+/g, "")
+      .toLowerCase();
+
+    const bool = (string1 === string2);
+
+    setReference(value);
+    setReferenceBool(bool);
+  };
 
   {/* function to check correctness of verse input */}
   const verseChange = (e) => {
@@ -75,7 +99,23 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
 
   return (
     <div className="VerseValidator">
-      <h2>{pack} - {reference}</h2>
+      {toHideReference ? (
+        <div>
+        <label className="reference-label" htmlFor="referenceBox">
+          Input Verse Reference:
+        </label>
+        <textarea
+          className={`reference-box${referenceBool ? ' correct' : ''}`}
+          type="text"
+          id="referenceBox"
+          name="referenceBox"
+          onChange={referenceChange}
+        />
+        </div>
+
+      ) : (
+        <h2>{pack} - {reference}</h2>
+      )}
 
       {chapterTitle && (
         <div>
@@ -122,8 +162,9 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       {/* This shows the answers*/} 
       {hintBool && (
         <>
-          <h3>{chapterTitle}</h3>
-          <h4>{title}</h4>
+          <p>{reference}</p>
+          <p>{chapterTitle}</p>
+          <p>{title}</p>
           <p>{verse}</p>
         </>
       )}

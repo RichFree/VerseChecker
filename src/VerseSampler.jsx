@@ -11,7 +11,7 @@ import _ from 'underscore';
 import './VerseSampler.css'
 import VerseValidator from "./VerseValidator";
 
-const GenerateTestList = ({ packs, testCount, toShuffle}) => {
+const GenerateTestList = ({ packs, testCount, toShuffle, toHideReference}) => {
   let testList = packs.reduce(
                           // grab all elements included checked in "packs"
                           (accumulator, currentValue) => accumulator.concat(VerseData[currentValue]),
@@ -19,14 +19,15 @@ const GenerateTestList = ({ packs, testCount, toShuffle}) => {
                         );
   testList = toShuffle ? _.sample(testList, testCount) : _.first(testList, testCount);
   return (
-    <ArrayTester array={testList} />
+    <ArrayTester array={testList} toHideReference={toHideReference} />
   )
 }
 
-const ArrayTester = ({ array }) => {
+const ArrayTester = ({ array, toHideReference }) => {
   const list = array.map((element) => (
     // key needs to be unique; chose 3 elements that will separate all elements
-    <VerseValidator key={element.pack + element.title + element.reference} element={element} />
+    <VerseValidator key={element.pack + element.title + element.reference}
+    element={element} toHideReference={toHideReference} />
   ))
   return list
 }
@@ -148,7 +149,20 @@ function App() {
   const handleShuffleCheckboxChange = () => {
     // Toggle the state when the checkbox is changed
     setShuffle(!toShuffle);
+    // additional state change to disable HideReference when shuffling
+    if (!toShuffle) {
+      setHideReference(false);
+    }
   };
+
+  // state for toHideReference
+  const [toHideReference, setHideReference] = useState(false);
+  // Function to handle checkbox change
+  const handleHideReferenceCheckboxChange = () => {
+    // Toggle the state when the checkbox is changed
+    setHideReference(!toHideReference);
+  };
+
 
 
   // refresh button for refresh
@@ -190,6 +204,23 @@ function App() {
       </h2>
       <p>(Otherwise cards will appear in sequential order)</p>
 
+      <div>
+        {!toShuffle ? 
+        <>
+          <h2>
+            Set Hide Reference:
+            <input
+              type="checkbox"
+              checked={toHideReference}
+              onChange={handleHideReferenceCheckboxChange}
+            />
+          </h2>
+          <p>(If you also want to test the verse reference)</p> 
+        </>:
+        <p></p>}
+      </div>
+
+
       <h2>Pick Your Packs:</h2>
       <CheckboxWidget
         checked={checked}
@@ -212,6 +243,7 @@ function App() {
         packs={checked}
         testCount={testCount}
         toShuffle={toShuffle}
+        toHideReference={toHideReference}
       />
 
     <hr />
