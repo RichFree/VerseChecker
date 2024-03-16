@@ -100,12 +100,12 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
 
   const DiffViewer = ({oldValue, newValue}) => {
     const string1 = String(oldValue)
-          .replace(/[^\w\s]/g, "")
-          .toLowerCase();
+      .replace(/[^\w\s]/g, "")
+      .toLowerCase();
 
     const string2 = String(newValue)
-              .replace(/[^\w\s]/g, "")
-              .toLowerCase();
+      .replace(/[^\w\s]/g, "")
+      .toLowerCase();
 
     return (<StringDiff oldValue={string1} newValue={string2} diffMethod="diffWords" />)
   }
@@ -202,18 +202,18 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
             <div>
               ChapterTitle:
               <DiffViewer
-                oldValue={chapterTitle}
-                newValue={inputChapterTitle}
+                oldValue={inputChapterTitle}
+                newValue={chapterTitle}
               />
             </div>
           )}
           <p></p>
           <div>
-            Title: <DiffViewer oldValue={title} newValue={inputTitle} />
+            Title: <DiffViewer oldValue={inputTitle} newValue={title} />
           </div>
           <p></p>
           <div>
-            Verse: <DiffViewer oldValue={verse} newValue={inputVerse} />
+            Verse: <DiffViewer oldValue={inputVerse} newValue={verse} />
           </div>
         </div>
       )}
