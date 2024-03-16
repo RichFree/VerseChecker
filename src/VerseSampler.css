@@ -16,3 +16,15 @@
 .test-count-box-label {
   padding: 5px
 }
+
+@media (prefers-color-scheme: dark) {
+  .rct-icon {
+    color: white;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .rct-icon {
+    color: black;
+  }
+}

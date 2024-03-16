@@ -63,7 +63,16 @@
   width: 80%;
 }
 
-.correct {
-  background-color: #e6ffe6; /* Change the background color as needed */
+
+
+@media (prefers-color-scheme: light) {
+  .correct {
+    background-color: #e6ffe6; /* Change the background color as needed */
+  }
 }
 
+@media (prefers-color-scheme: dark) {
+  .correct {
+    background-color: #495749; /* Change the background color as needed */
+  }
+}
