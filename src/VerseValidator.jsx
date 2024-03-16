@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./VerseValidator.css"
 
-const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } }) => {
+// function to render and handle logic of each of the cells
+const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } }) => {  // useful use of destructuring here
   const [inputVerse, setVerse] = useState('')
   const [verseBool, setVerseBool] = useState(false)
   const [inputTitle, setTitle] = useState('')
@@ -10,6 +11,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
   const [chapterTitleBool, setChapterTitleBool] = useState(false)
   const[hintBool, setHintBool] = useState(false)
 
+  {/* function to check correctness of verse input */}
   const verseChange = (e) => {
     const value = e.target.value;
     let string1 = value;
@@ -29,6 +31,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
     setVerseBool(bool);
   };
 
+  {/* function to check correctness of title input */}
   const titleChange = (e) => {
     const value = e.target.value;
     let string1 = value;
@@ -48,6 +51,8 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
     setTitleBool(bool);
   };
 
+
+  {/* function to check correctness of chapter title input */}
   const chapterTitleChange = (e) => {
     const value = e.target.value;
     let string1 = value;
@@ -68,68 +73,53 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
   };
 
 
-
-
-  let result = "";
-
-  if (chapterTitle) {
-    if (chapterTitleBool && titleBool && verseBool) {
-      result = "Correct"
-    } else {
-      result = ""
-    }
-  } else {
-    if (titleBool && verseBool) {
-      result = "Correct"
-    } else {
-      result = ""
-    }
-  }
   return (
     <div className="VerseValidator">
       <h2>{pack} - {reference}</h2>
 
       {chapterTitle && (
-        <>
-          <label className="main-title-box-label" htmlFor="chapterTitleBox">
-            Input Chapter Title:
-          </label>
-          <textarea
-            className="chapter-title-box"
-            type="text"
-            id="chapterTitleBox"
-            name="chapterTitleBox"
-            onChange={chapterTitleChange}
-          />
-        </>
+        <div>
+        <label className="main-title-box-label" htmlFor="chapterTitleBox">
+          Input Chapter Title:
+        </label>
+        <textarea
+          className={`chapter-title-box${chapterTitleBool ? ' correct' : ''}`}
+          type="text"
+          id="chapterTitleBox"
+          name="chapterTitleBox"
+          onChange={chapterTitleChange}
+        />
+        </div>
       )}
 
+      {/* input box for title */}
       <label className="title-box-label" htmlFor="titleBox">
         Input Title:
       </label>
       <textarea
-        className="title-box"
+        className={`title-box${titleBool ? ' correct' : ''}`}
         type="text"
         id="titleBox"
         name="titleBox"
         onChange={titleChange}
       />
 
+      {/* input box for verse */}
       <label className="verse-box-label" htmlFor="verseBox">
         Input Verse:
       </label>
       <textarea
-        className="verse-box"
+        className={`verse-box${verseBool ? ' correct' : ''}`}
         type="text"
         id="verseBox"
         name="verseBox"
         onChange={verseChange}
       />
-
-      <ul>{result}</ul>
-
+      
+      {/* button to toggle show answer*/} 
       <button onClick={() => setHintBool(!hintBool)}>Show Answer:</button>
 
+      {/* This shows the answers*/} 
       {hintBool && (
         <>
           <h3>{chapterTitle}</h3>

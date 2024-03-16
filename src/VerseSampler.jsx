@@ -25,6 +25,7 @@ const GenerateTestList = ({ packs, testCount, toShuffle}) => {
 
 const ArrayTester = ({ array }) => {
   const list = array.map((element) => (
+    // key needs to be unique; chose 3 elements that will separate all elements
     <VerseValidator key={element.pack + element.title + element.reference} element={element} />
   ))
   return list
@@ -215,8 +216,7 @@ function App() {
 
     <hr />
 
-    <p><x-small>last updated: November 10, 2023</x-small></p>
-
+    <p><x-small> Built on: {VITE_BUILD_DATE} </x-small></p>
     </div>
   );
 }  

@@ -1,24 +1,16 @@
 .App {
     max-width: 400px;
 }
+
+
 .VerseValidator {
   padding-block: 1px 10px;
   border-top: 1px solid black;
   max-width: 400px;
 }
 
-.title-box {
-  /*padding: 5px;*/
-  height: 5vh;
-  display: block;
-  width: 99%;
-  border: 1px solid grey;
-  border-radius: 5px;
-  font-size: 15px;
-}
-
 .chapter-title-box {
-  /*padding: 5px;*/
+  min-width:400px;
   height: 5vh;
   display: block;
   width: 99%;
@@ -27,14 +19,40 @@
   font-size: 15px;
 }
 
+.title-box {
+  max-width: 400px;
+  height: 5vh;
+  display: block;
+  width: 99%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  font-size: 15px;
+}
 
 .verse-box {
   /*padding: 5px;*/
+  min-width:400px;
   height: 10vh;
   display: block;
   width: 99%;
   border: 1px solid grey;
   border-radius: 5px;
   font-size: 15px;
+}
+
+.verse-box {
+  /*padding: 5px;*/
+  min-width:400px;
+  height: 10vh;
+  display: block;
+  width: 99%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+
+.correct {
+  background-color: #e6ffe6; /* Change the background color as needed */
 }
 
