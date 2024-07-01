@@ -116,7 +116,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       {/* toggle hiding reference */}
       {toHideReference ? (
         <div>
-          <label className="reference-label" htmlFor="referenceBox">
+          <label className="reference-label">
             Input Verse Reference:
           </label>
           <textarea
@@ -136,7 +136,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       {/* toggle chapterTitle */}
       {chapterTitle && (
         <div>
-          <label className="main-title-box-label" htmlFor="chapterTitleBox">
+          <label className="main-title-box-label">
             Input Chapter Title:
           </label>
           <textarea
@@ -150,7 +150,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       )}
 
       {/* input box for title */}
-      <label className="title-box-label" htmlFor="titleBox">
+      <label className="title-box-label">
         Input Title:
       </label>
       <textarea
@@ -162,7 +162,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       />
 
       {/* input box for verse */}
-      <label className="verse-box-label" htmlFor="verseBox">
+      <label className="verse-box-label">
         Input Verse:
       </label>
       <textarea

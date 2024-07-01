@@ -39,6 +39,11 @@
   font-size: 15px;
 }
 
+.reference-label .main-title-box-label .title-box-label .verse-box-label {
+  pointer-events: none;
+}
+
+
 .verse-box {
   max-width:400px;
   height: 10vh;
