@@ -1,10 +1,14 @@
 import { useState } from "react";
 import "./VerseValidator.css";
 import { StringDiff } from "react-string-diff";
+import { useTranslation } from 'react-i18next';
 
 
 // function to render and handle logic of each of the cells
 const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference}) => {  // useful use of destructuring here
+
+  // setup i18 for function
+  const { t } = useTranslation();
 
   const [inputReference, setReference] = useState('')
   const [referenceBool, setReferenceBool] = useState(false)
@@ -117,7 +121,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       {toHideReference ? (
         <div>
           <label className="reference-label">
-            Input Verse Reference:
+            {t('verse_validator.input_reference')} 
           </label>
           <textarea
             className={`reference-box${referenceBool ? " correct" : ""}`}
@@ -137,7 +141,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       {chapterTitle && (
         <div>
           <label className="main-title-box-label">
-            Input Chapter Title:
+            {t('verse_validator.input_chapter_title')} 
           </label>
           <textarea
             className={`chapter-title-box${chapterTitleBool ? " correct" : ""}`}
@@ -151,7 +155,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
 
       {/* input box for title */}
       <label className="title-box-label">
-        Input Title:
+        {t('verse_validator.input_title')} 
       </label>
       <textarea
         className={`title-box${titleBool ? " correct" : ""}`}
@@ -163,7 +167,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
 
       {/* input box for verse */}
       <label className="verse-box-label">
-        Input Verse:
+        {t('verse_validator.input_verse')} 
       </label>
       <textarea
         className={`verse-box${verseBool ? " correct" : ""}`}

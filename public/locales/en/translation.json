@@ -1,0 +1,22 @@
+{
+    "main": {
+        "title": "Scripture Memory Tester",
+        "pick_lang": "Pick Language",
+        "pick_num_verses": "Pick Number of Verses:",
+        "num_verses_tested": "Number of Verses Tested:",
+        "note_num_verses": "(It will only give you as many verses as there are in selected packs)",
+        "set_shuffle": "Set Shuffle:",
+        "note_set_shuffle": "(Otherwise cards will appear in sequential order)",
+        "hide_reference": "Set Hide Reference:",
+        "note_hide_reference": "(If you also want to test the verse reference)",
+        "pick_pack": "Pick Your Packs:",
+        "shuffle_card": "Shuffle Cards:",
+        "verses": "Verses:"
+    },
+    "verse_validator": {
+        "input_reference": "Input Verse Reference:",
+        "input_chapter_title": "Input Chapter Title:",
+        "input_title": "Input Title:",
+        "input_verse": "Input Verse:"
+    }
+}

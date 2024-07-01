@@ -3,15 +3,18 @@ Implemented features:
 - read keys from json
 - create checklist from keys
 */
-import VerseData from "./assets/verse.json"
+import fullVerseData from "./assets/verse.json" // the actual verse json data file
 import { useState } from "react";
 import CheckboxTree from 'react-checkbox-tree';
 import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 import _ from 'underscore';
 import './VerseSampler.css'
 import VerseValidator from "./VerseValidator";
+import { useTranslation } from 'react-i18next';
+import logo from './assets/droplet.svg';
+import { Suspense } from "react";
 
-const GenerateTestList = ({ packs, testCount, toShuffle, toHideReference}) => {
+const GenerateTestList = ({ VerseData, packs, testCount, toShuffle, toHideReference}) => {
   let testList = packs.reduce(
                           // grab all elements included checked in "packs"
                           (accumulator, currentValue) => accumulator.concat(VerseData[currentValue]),
@@ -110,10 +113,41 @@ const CheckboxWidget = ({checked, expanded, setChecked, setExpanded}) => {
   );
 }
 
+// loadCustomData
+const loadCustomData = (language) => {
+  let data;
+  console.log(language)
+  switch (language) {
+    case 'kn':
+      data = fullVerseData.kn;
+      break;
+    case 'en':
+    default:
+      data = fullVerseData.en;
+      break;
+  }
+  return data;
+};
 
 
 
-function App() {
+
+function Page() {
+  // setup i18 for function
+  const { t, i18n } = useTranslation();
+
+  // load VerseData json data file
+  const [VerseData, setVerseData] = useState(loadCustomData(i18n.language));
+  
+  // function hook to change language
+  // updates both i18n language and also the VerseData state variable
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    setVerseData(loadCustomData(i18n.language));
+  };
+
+
+
   // create checklist array for pack selection
   const packList = Object.keys(VerseData);
   // return a list of packObj's
@@ -178,10 +212,13 @@ function App() {
   
   return (
     <div className="App">
-      <h1>Scripture Memory Tester</h1>
-      <h2>Pick Number of Verses:</h2>
+      <h1>{t('main.title')}</h1>
+      <h2>{t('main.pick_lang')}</h2>
+      <button type="button" onClick={() => changeLanguage('en')}>English</button>
+      <button type="button" onClick={() => changeLanguage('kn')}>Korean</button>
+      <h2>{t('main.pick_num_verses')}</h2>
       <label className="test-count-box-label" htmlFor="testCountBox">
-        Number of Verses Tested:
+        {t('main.num_verses_tested')}
       </label>
       <input
         className="test-count-box"
@@ -192,7 +229,7 @@ function App() {
         onChange={testCountChange}
       />
 
-      <p>(It will only give you as many verses as there are in selected packs)</p>
+      <p>{t('main.note_num_verses')}</p>
 
       <h2>
         Set Shuffle:
@@ -202,26 +239,26 @@ function App() {
           onChange={handleShuffleCheckboxChange}
         />
       </h2>
-      <p>(Otherwise cards will appear in sequential order)</p>
+      <p>{t('main.note_set_shuffle')}</p>
 
       <div>
         {!toShuffle ? 
         <>
           <h2>
-            Set Hide Reference:
+            {t('main.hide_reference')} 
             <input
               type="checkbox"
               checked={toHideReference}
               onChange={handleHideReferenceCheckboxChange}
             />
           </h2>
-          <p>(If you also want to test the verse reference)</p> 
+          <p>{t('main.note_hide_reference')}</p> 
         </>:
         <p></p>}
       </div>
 
 
-      <h2>Pick Your Packs:</h2>
+      <h2>{t('main.pick_pack')}</h2>
       <CheckboxWidget
         checked={checked}
         expanded={expanded}
@@ -232,14 +269,15 @@ function App() {
       <div key={refreshKey}>
         {toShuffle ? 
         <>
-          <h2>Shuffle Cards:</h2>
+          <h2>{t('main.shuffle_card')}</h2>
           <RefreshButton onClick={handleRefresh} />
         </>: 
         <p></p>}
       </div>
 
-      <h1>Verses:</h1>
+      <h1>{t('main.verses')}</h1>
       <GenerateTestList
+        VerseData={VerseData}
         packs={checked}
         testCount={testCount}
         toShuffle={toShuffle}
@@ -253,4 +291,18 @@ function App() {
   );
 }  
 
-export default App
+// loading component for suspense fallback
+const Loader = () => (
+  <div className="App">
+    <img src={logo} className="App-logo" alt="logo" />
+    <div>loading...</div>
+  </div>
+);
+
+export default function App() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <Page />
+    </Suspense>
+  );
+}
