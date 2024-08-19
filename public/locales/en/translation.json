@@ -79,6 +79,15 @@
                 { "value": "dep-5-part-d", "label": "Attitude of fellowship" },
                 { "value": "dep-5-part-e", "label": "Problem solving in fellowship" }
             ]
+        },
+        {
+            "value":"dep-6",
+            "label":"DEP 6",
+            "children": [
+                { "value": "dep-6-part-a", "label": "Who is respondible for witnessing?" },
+                { "value": "dep-6-part-b", "label": "Why should we witness?" },
+                { "value": "dep-6-part-c", "label": "How do we witness?" }
+            ]
         }
     ]
 }
