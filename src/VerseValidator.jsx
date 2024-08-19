@@ -1,14 +1,10 @@
 import { useState } from "react";
 import "./VerseValidator.css";
 import { StringDiff } from "react-string-diff";
-import { useTranslation } from 'react-i18next';
 
 
 // function to render and handle logic of each of the cells
-const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference}) => {  // useful use of destructuring here
-
-  // setup i18 for function
-  const { t } = useTranslation();
+const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference, t}) => {  // useful use of destructuring here
 
   const [inputReference, setReference] = useState('')
   const [referenceBool, setReferenceBool] = useState(false)
@@ -25,16 +21,15 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
   // function to check correctness of verse input
   // so far only perform checking on full spelling of reference names
   const referenceChange = (e) => {
-
     const value = e.target.value;
-
     const string1 = String(value)
       .replace(/\s+/g, "")
-      .toLowerCase();
+      .toLowerCase()
+      .normalize("NFC");
     const string2 = String(reference)
       .replace(/\s+/g, "")
-      .toLowerCase();
-
+      .toLowerCase()
+      .normalize("NFC");
     const bool = (string1 === string2);
 
     setReference(value);
@@ -47,13 +42,15 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
     let string1 = value;
     let string2 = verse;
     string1 = String(string1)
-      .replace(/[^\w\s]/g, "")
+      .replace(/[\p{P}\p{S}]/gu, "")
       .replace(/\s+/g, "")
-      .toLowerCase();
+      .toLowerCase()
+      .normalize("NFC");
     string2 = String(string2)
-      .replace(/[^\w\s]/g, "")
+      .replace(/[\p{P}\p{S}]/gu, "")
       .replace(/\s+/g, "")
-      .toLowerCase();
+      .toLowerCase()
+      .normalize("NFC");
 
     const bool = string1 === string2;
 
@@ -67,13 +64,16 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
     let string1 = value;
     let string2 = title;
     string1 = String(string1)
-      .replace(/[^\w\s]/g, "")
-      .replace(/\s+/g, "")
-      .toLowerCase();
+      .replace(/[\p{P}\p{S}]/gu, "") // Removes punctuation and symbols
+      .replace(/\s+/g, "")            // Removes all whitespace
+      .toLowerCase()
+      .normalize("NFC");              // Normalizes to NFC form
+
     string2 = String(string2)
-      .replace(/[^\w\s]/g, "")
+      .replace(/[\p{P}\p{S}]/gu, "")
       .replace(/\s+/g, "")
-      .toLowerCase();
+      .toLowerCase()
+      .normalize("NFC");
 
     const bool = string1 === string2;
 
@@ -84,17 +84,22 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
 
   {/* function to check correctness of chapter title input */}
   const chapterTitleChange = (e) => {
+
+
     const value = e.target.value;
     let string1 = value;
     let string2 = chapterTitle;
     string1 = String(string1)
-      .replace(/[^\w\s]/g, "")
+      .replace(/[\p{P}\p{S}]/gu, "")
       .replace(/\s+/g, "")
-      .toLowerCase();
+      .toLowerCase()
+      .normalize("NFC");
+
     string2 = String(string2)
-      .replace(/[^\w\s]/g, "")
+      .replace(/[\p{P}\p{S}]/gu, "")
       .replace(/\s+/g, "")
-      .toLowerCase();
+      .toLowerCase()
+      .normalize("NFC");
 
     const bool = string1 === string2;
 
@@ -104,12 +109,27 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
 
   const DiffViewer = ({oldValue, newValue}) => {
     const string1 = String(oldValue)
-          .replace(/[^\w\s]/g, "")
-          .toLowerCase();
+      .replace(/[\p{P}\p{S}]/gu, "")
+      .toLowerCase()
+      .normalize("NFC");
+
 
     const string2 = String(newValue)
-              .replace(/[^\w\s]/g, "")
-              .toLowerCase();
+      .replace(/[\p{P}\p{S}]/gu, "")
+      .toLowerCase()
+      .normalize("NFC");
+
+    return (<StringDiff oldValue={string1} newValue={string2} diffMethod="diffWords" />)
+  }
+
+  const DiffViewerStrict = ({oldValue, newValue}) => {
+    const string1 = String(oldValue)
+      .toLowerCase()
+      .normalize("NFC");
+
+    const string2 = String(newValue)
+      .toLowerCase()
+      .normalize("NFC");
 
     return (<StringDiff oldValue={string1} newValue={string2} diffMethod="diffWords" />)
   }
@@ -179,29 +199,25 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
 
       {/* button to toggle show answer*/}
       <div className="answer-button-box">
-        <button onClick={() => setHintBool(!hintBool)}>Show Answer:</button>
-        <button onClick={() => setDiffBool(!diffBool)}>Show Diff:</button>
+        {/* <button onClick={() => setHintBool(!hintBool)}>Show Answer:</button> */}
+        <button onClick={() => setDiffBool(!diffBool)}>Show Answer:</button>
       </div>
-
-      {/* This shows the answers*/}
-      {hintBool && (
-        <div className="answer-box">
-          <h3>Answers</h3>
-          <p>Reference:<br />{reference}</p>
-          {chapterTitle && (
-            <>
-              <p>ChapterTitle<br />{chapterTitle}</p>
-            </>
-          )}
-          <p>Title:<br />{title}</p>
-          <p>Verse:<br />{verse}</p>
-        </div>
-      )}
 
       {/* This shows the difference between given and input answers*/}
       {diffBool && (
         <div className="diff-box">
           <h3>Differences</h3>
+
+          <p></p>
+          <div>
+            Reference: 
+            <DiffViewerStrict 
+              oldValue={reference} 
+              newValue={inputReference} 
+            />
+          </div>
+
+          <p></p>
           {chapterTitle && (
             <div>
               ChapterTitle:
@@ -211,15 +227,25 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
               />
             </div>
           )}
+
           <p></p>
           <div>
-            Title: <DiffViewer oldValue={title} newValue={inputTitle} />
+            Title: 
+            <DiffViewer 
+              oldValue={title} 
+              newValue={inputTitle} 
+            />
           </div>
+
           <p></p>
           <div>
-            Verse: <DiffViewer oldValue={verse} newValue={inputVerse} />
+            Verse: 
+            <DiffViewer 
+              oldValue={verse} 
+              newValue={inputVerse} 
+            />
+            </div>
           </div>
-        </div>
       )}
     </div>
   );

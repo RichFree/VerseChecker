@@ -18,5 +18,67 @@
         "input_chapter_title": "Input Chapter Title:",
         "input_title": "Input Title:",
         "input_verse": "Input Verse:"
-    }
+    },
+    "nodes": [
+        {
+            "value": "loa",
+            "label": "Lessons on Assurance"
+        },
+        {
+            "value": "tms60",
+            "label": "TMS60",
+            "children": [
+                { "value": "tms-60-pack-a", "label": "Living the New Life" },
+                { "value": "tms-60-pack-b", "label": "Proclaiming Christ" },
+                { "value": "tms-60-pack-c", "label": "Reliance on God's Resources" },
+                { "value": "tms-60-pack-d", "label": "Being Christ's Disciple" },
+                { "value": "tms-60-pack-e", "label": "Growth in Christlikeness" }
+            ]
+        },
+        {
+            "value": "dep-1",
+            "label": "DEP 1"
+        },
+        {
+            "value": "dep-2",
+            "label": "DEP 2",
+            "children": [
+                { "value": "dep-2-part-a", "label": "Why do we have Quiet Time?" },
+                { "value": "dep-2-part-b", "label": "What is Quiet Time?" },
+                { "value": "dep-2-part-c", "label": "Examples of Quiet Time" }
+            ]
+        },
+        {
+            "value": "dep-3",
+            "label": "DEP 3",
+            "children": [
+                { "value": "dep-3-part-a", "label": "Authority of the Word" },
+                { "value": "dep-3-part-b", "label": "value of the Word" },
+                { "value": "dep-3-part-c", "label": "Attitude to the Word" },
+                { "value": "dep-3-part-d", "label": "How to take in the Word (Word Hand Illustration)" }
+            ]
+        },
+        {
+            "value": "dep-4",
+            "label": "DEP 4",
+            "children": [
+                { "value": "dep-4-part-a", "label": "Command of Prayer" },
+                { "value": "dep-4-part-b", "label": "Promises and Blessings of Prayer" },
+                { "value": "dep-4-part-c", "label": "Conditions for Answered Prayer" },
+                { "value": "dep-4-part-d", "label": "Examples of Prayer" },
+                { "value": "dep-4-part-e", "label": "Prayer Hand Illustration" }
+            ]
+        },
+        {
+            "value": "dep-5",
+            "label": "DEP 5",
+            "children": [
+                { "value": "dep-5-part-a", "label": "Foundation of Christian Fellowship" },
+                { "value": "dep-5-part-b", "label": "Importance of fellowship" },
+                { "value": "dep-5-part-c", "label": "Essentials of fellowship" },
+                { "value": "dep-5-part-d", "label": "Attitude of fellowship" },
+                { "value": "dep-5-part-e", "label": "Problem solving in fellowship" }
+            ]
+        }
+    ]
 }

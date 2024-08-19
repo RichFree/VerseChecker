@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next';
 import logo from './assets/droplet.svg';
 import { Suspense } from "react";
 
-const GenerateTestList = ({ VerseData, packs, testCount, toShuffle, toHideReference}) => {
+const GenerateTestList = ({ VerseData, packs, testCount, toShuffle, toHideReference, translate}) => {
   let testList = packs.reduce(
                           // grab all elements included checked in "packs"
                           (accumulator, currentValue) => accumulator.concat(VerseData[currentValue]),
@@ -22,84 +22,28 @@ const GenerateTestList = ({ VerseData, packs, testCount, toShuffle, toHideRefere
                         );
   testList = toShuffle ? _.sample(testList, testCount) : _.first(testList, testCount);
   return (
-    <ArrayTester array={testList} toHideReference={toHideReference} />
+    <ArrayTester 
+      array={testList} 
+      toHideReference={toHideReference} 
+      translate={translate}
+    />
   )
 }
 
-const ArrayTester = ({ array, toHideReference }) => {
+const ArrayTester = ({ array, toHideReference, translate}) => {
   const list = array.map((element) => (
     // key needs to be unique; chose 3 elements that will separate all elements
-    <VerseValidator key={element.pack + element.title + element.reference}
-    element={element} toHideReference={toHideReference} />
+    <VerseValidator 
+      key={element.pack + element.title + element.reference}
+      element={element} 
+      toHideReference={toHideReference} 
+      t={translate} // this passes the t i18 object to the function
+    />
   ))
   return list
 }
 
-
-const nodes = [
-  {
-    value: "loa",
-    label: "Lessons on Assurance",
-  },
-  {
-    value: "tms60",
-    label: "TMS60",
-    children: [
-      { value: "tms-60-pack-a", label: "Living the New Life" },
-      { value: "tms-60-pack-b", label: "Proclaiming Christ" },
-      { value: "tms-60-pack-c", label: "Reliance on God's Resources" },
-      { value: "tms-60-pack-d", label: "Being Christ's Disciple" },
-      { value: "tms-60-pack-e", label: "Growth in Christlikeness" }
-    ],
-  },
-  {
-    value: "dep-1",
-    label: "DEP 1",
-  },
-  {
-    value: "dep-2",
-    label: "DEP 2",
-    children: [
-      { value: "dep-2-part-a", label: "Why do we have Quiet Time?" },
-      { value: "dep-2-part-b", label: "What is Quiet Time?" },
-      { value: "dep-2-part-c", label: "Examples of Quiet Time" }
-    ],
-  },
-  {
-    value: "dep-3",
-    label: "DEP 3",
-    children: [
-      { value: "dep-3-part-a", label: "Authority of the Word" },
-      { value: "dep-3-part-b", label: "Value of the Word" },
-      { value: "dep-3-part-c", label: "Attitude to the Word" },
-      { value: "dep-3-part-d", label: "How to take in the Word (Word Hand Illustration)" }
-    ],
-  },
-  {
-    value: "dep-4",
-    label: "DEP 4",
-    children: [
-      { value: "dep-4-part-a", label: "Command of Prayer" },
-      { value: "dep-4-part-b", label: "Promises and Blessings of Prayer" },
-      { value: "dep-4-part-c", label: "Conditions for Answered Prayer" },
-      { value: "dep-4-part-d", label: "Examples of Prayer" },
-      { value: "dep-4-part-e", label: "Prayer Hand Illustration" }
-    ],
-  },
-  {
-    value: "dep-5",
-    label: "DEP 5",
-    children: [
-      { value: "dep-5-part-a", label: "Foundation of Christian Fellowship" },
-      { value: "dep-5-part-b", label: "Importance of fellowship" },
-      { value: "dep-5-part-c", label: "Essentials of fellowship" },
-      { value: "dep-5-part-d", label: "Attitude of fellowship" },
-      { value: "dep-5-part-e", label: "Problem solving in fellowship" }
-    ],
-  },
-];
-
-const CheckboxWidget = ({checked, expanded, setChecked, setExpanded}) => {
+const CheckboxWidget = ({nodes, checked, expanded, setChecked, setExpanded}) => {
   return (
     <div className="CheckboxTree">
       <CheckboxTree
@@ -116,7 +60,7 @@ const CheckboxWidget = ({checked, expanded, setChecked, setExpanded}) => {
 // loadCustomData
 const loadCustomData = (language) => {
   let data;
-  console.log(language)
+  // console.log(language)
   switch (language) {
     case 'kn':
       data = fullVerseData.kn;
@@ -232,7 +176,7 @@ function Page() {
       <p>{t('main.note_num_verses')}</p>
 
       <h2>
-        Set Shuffle:
+        {t('main.set_shuffle')} 
         <input
           type="checkbox"
           checked={toShuffle}
@@ -260,6 +204,7 @@ function Page() {
 
       <h2>{t('main.pick_pack')}</h2>
       <CheckboxWidget
+        nodes={t('nodes', { returnObjects: true })}
         checked={checked}
         expanded={expanded}
         setChecked={setChecked}
@@ -282,6 +227,7 @@ function Page() {
         testCount={testCount}
         toShuffle={toShuffle}
         toHideReference={toHideReference}
+        translate={t}
       />
 
     <hr />

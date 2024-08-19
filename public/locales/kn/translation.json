@@ -1,11 +1,11 @@
 {
     "main": {
-        "title": "Scripture Memory Tester (kr)",
-        "pick_lang": "Pick Language (kr)",
-        "pick_num_verses": "Pick Number of Verses: (kr)",
-        "num_verses_tested": "Number of Verses Tested:",
+        "title": "성경 암송 앱",
+        "pick_lang": "언어 선택",
+        "pick_num_verses": "암송 구절 선택:",
+        "num_verses_tested": "구절 수 선택:",
         "note_num_verses": "(It will only give you as many verses as there are in selected packs)",
-        "set_shuffle": "Set Shuffle:",
+        "set_shuffle": "무작위 설정:",
         "note_set_shuffle": "(Otherwise cards will appear in sequential order)",
         "hide_reference": "Set Hide Reference:",
         "note_hide_reference": "(If you also want to test the verse reference)",
@@ -18,5 +18,11 @@
         "input_chapter_title": "Input Chapter Title: (KR)",
         "input_title": "Input Title: (KR)",
         "input_verse": "Input Verse: (KR)"
-    }
+    },
+    "nodes": [
+        {
+            "value": "loa",
+            "label": "Lessons on Assurance"
+        }
+    ]
 }
