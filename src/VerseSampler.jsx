@@ -4,7 +4,7 @@ Implemented features:
 - create checklist from keys
 */
 import fullVerseData from "./assets/verse.json" // the actual verse json data file
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CheckboxTree from 'react-checkbox-tree';
 import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 import _ from 'underscore';
@@ -68,7 +68,7 @@ const loadCustomData = (language) => {
     case 'en':
     default:
       data = fullVerseData.en;
-      break;
+      break;// 
   }
   return data;
 };
@@ -77,39 +77,61 @@ const loadCustomData = (language) => {
 
 
 function Page() {
+
+  // refresh button for refresh
+  const RefreshButton = ({ onClick }) => {
+    return <button onClick={onClick}>Shuffle</button>;
+  };
+  // refresh variables where incrementing state forces refresh
+  const [refreshKey, setRefreshKey] = useState(0);
+  const handleRefresh = () => {
+    // Increment the key to force a re-render
+    setRefreshKey(refreshKey => refreshKey + 1);
+  };
+
   // setup i18 for function
   const { t, i18n } = useTranslation();
 
-  // load VerseData json data file
-  const [VerseData, setVerseData] = useState(loadCustomData(i18n.language));
+  // we should not load the file every time
+  const [VerseData, setVerseData] = useState(null);
+  // effect to only run on first render
+  // empty dependency means only mount once
+  useEffect(() => {
+    setVerseData(loadCustomData(i18n.language));
+  }, []);
+
   
   // function hook to change language
   // updates both i18n language and also the VerseData state variable
   const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-    setVerseData(loadCustomData(i18n.language));
+    // i18n.changeLanguage is async, so we should wait until its done to avoid
+    // race conditions
+    // console.log("change language");
+    i18n.changeLanguage(lng).then(() => {
+      setVerseData(loadCustomData(i18n.language));
+    });
   };
 
 
 
-  // create checklist array for pack selection
-  const packList = Object.keys(VerseData);
-  // return a list of packObj's
-  // 1. packObj.pack for the pack name 
-  // 2. packObj.include for whether to include the pack
-  const packObjList = packList.map((element) => {
-    // create object for each element in VerseData key list
-    const packObj = new Object();
-    packObj.pack = element;
-    packObj.include = false;
-    return packObj
-  }
-  )
-  const [packs, setPacks] = useState(packObjList)
+  // // create checklist array for pack selection
+  // const packList = Object.keys(VerseData);
+  // // return a list of packObj's
+  // // 1. packObj.pack for the pack name 
+  // // 2. packObj.include for whether to include the pack
+  // const packObjList = packList.map((element) => {
+  //   // create object for each element in VerseData key list
+  //   const packObj = new Object();
+  //   packObj.pack = element;
+  //   packObj.include = false;
+  //   return packObj
+  // }
+  // )
+  // const [packs, setPacks] = useState(packObjList)
 
   // initialize state variable testCount
   // purpose: to set number of verses to test
-  const [testCount, setTestCount] = useState(15)
+  const [testCount, setTestCount] = useState(20)
   const testCountChange = (e) => {
     const value = e.target.value
     setTestCount(value)
@@ -143,16 +165,6 @@ function Page() {
 
 
 
-  // refresh button for refresh
-  const RefreshButton = ({ onClick }) => {
-    return <button onClick={onClick}>Shuffle</button>;
-  };
-  // refresh variables where incrementing state forces refresh
-  const [refreshKey, setRefreshKey] = useState(0);
-  const handleRefresh = () => {
-    // Increment the key to force a re-render
-    setRefreshKey(refreshKey => refreshKey + 1);
-  };
   
   return (
     <div className="App">

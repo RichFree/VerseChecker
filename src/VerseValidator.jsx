@@ -240,7 +240,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
           <p></p>
           <div>
             Verse: 
-            <DiffViewer 
+            <DiffViewerStrict 
               oldValue={verse} 
               newValue={inputVerse} 
             />
