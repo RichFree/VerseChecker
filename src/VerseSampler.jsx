@@ -104,6 +104,10 @@ function Page() {
   // function hook to change language
   // updates both i18n language and also the VerseData state variable
   const changeLanguage = (lng) => {
+    // reset selection list
+    setChecked([]);
+    setExpanded([]);
+
     // i18n.changeLanguage is async, so we should wait until its done to avoid
     // race conditions
     // console.log("change language");
@@ -112,22 +116,6 @@ function Page() {
     });
   };
 
-
-
-  // // create checklist array for pack selection
-  // const packList = Object.keys(VerseData);
-  // // return a list of packObj's
-  // // 1. packObj.pack for the pack name 
-  // // 2. packObj.include for whether to include the pack
-  // const packObjList = packList.map((element) => {
-  //   // create object for each element in VerseData key list
-  //   const packObj = new Object();
-  //   packObj.pack = element;
-  //   packObj.include = false;
-  //   return packObj
-  // }
-  // )
-  // const [packs, setPacks] = useState(packObjList)
 
   // initialize state variable testCount
   // purpose: to set number of verses to test
@@ -252,7 +240,12 @@ function Page() {
 // loading component for suspense fallback
 const Loader = () => (
   <div className="App">
-    <img src={logo} className="App-logo" alt="logo" />
+    <img 
+      src={logo} 
+      className="App-logo" 
+      alt="logo" 
+      style={{ width: '20vw', height: 'auto' }} 
+    />
     <div>loading...</div>
   </div>
 );
