@@ -14,26 +14,44 @@
         "verses": "Verses:"
     },
     "verse_validator": {
-        "input_reference": "Input Verse Reference: (KR)",
-        "input_chapter_title": "Input Chapter Title: (KR)",
-        "input_title": "Input Title: (KR)",
-        "input_verse": "Input Verse: (KR)"
+        "input_reference": "Input Verse Reference: ",
+        "input_chapter_title": "Input Chapter Title: ",
+        "input_title": "Input Title: ",
+        "input_verse": "Input Verse: "
     },
     "nodes": [
         {
             "value": "loa",
-            "label": "Lessons on Assurance"
+            "label": "5확신"
+        },
+        {
+            "value": "8구절",
+            "label": "8구절"
         },
         {
             "value": "tms60",
-            "label": "TMS60",
+            "label": "60구절",
             "children": [
-                { "value": "tms-60-pack-a", "label": "Living the New Life" },
-                { "value": "tms-60-pack-b", "label": "Proclaiming Christ" },
-                { "value": "tms-60-pack-c", "label": "Reliance on God's Resources" },
-                { "value": "tms-60-pack-d", "label": "Being Christ's Disciple" },
-                { "value": "tms-60-pack-e", "label": "Growth in Christlikeness" }
+                { "value": "tms-60-pack-a", "label": "새로운 삶" },
+                { "value": "tms-60-pack-b", "label": "그리스도를 전파함" },
+                { "value": "tms-60-pack-c", "label": "하나님을 의뢰함" },
+                { "value": "tms-60-pack-d", "label": "그리스도 제자의 자격" },
+                { "value": "tms-60-pack-e", "label": "그리스도를 닮아감" }
+            ]
+        },
+        {
+            "value": "dep-1",
+            "label": "DEP 1"
+        },
+        {
+            "value": "dep-2",
+            "label": "DEP 2",
+            "children": [
+                { "value": "dep-2-part-a", "label": "왜 QT를 가져야 하는가?" },
+                { "value": "dep-2-part-b", "label": "QT란 무엇인가?" },
+                { "value": "dep-2-part-c", "label": "QT의 본" }
             ]
         }
+
     ]
 }
