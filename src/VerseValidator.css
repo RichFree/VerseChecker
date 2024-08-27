@@ -76,8 +76,34 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .correct {
-    background-color: #495749; /* Change the background color as needed */
+@media (prefers-color-scheme: light) {
+  .partial {
+    background-color: #dafcff; /* Change the background color as needed */
   }
 }
+
+@media (prefers-color-scheme: light) {
+  .incorrect {
+    background-color: transparent; /* Change the background color as needed */
+  }
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .correct {
+    background-color: #2e5e2e; /* Change the background color as needed */
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .partial {
+    background-color: #004d5c; /* Change the background color as needed */
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .incorrect {
+    background-color: transparent; /* Change the background color as needed */
+  }
+}
+

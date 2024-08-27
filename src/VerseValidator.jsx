@@ -2,24 +2,28 @@ import { useState } from "react";
 import "./VerseValidator.css";
 import { StringDiff } from "react-string-diff";
 
+const STATE = {
+  INCORRECT: 0,
+  PARTIAL: 1,
+  CORRECT: 2,
+};
 
 // function to render and handle logic of each of the cells
 const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference, t}) => {  // useful use of destructuring here
 
   const [inputReference, setReference] = useState('')
-  const [referenceBool, setReferenceBool] = useState(false)
+  const [referenceBool, setReferenceBool] = useState(STATE.INCORRECT)
   const [inputChapterTitle, setChapterTitle] = useState('')
-  const [chapterTitleBool, setChapterTitleBool] = useState(false)
+  const [chapterTitleBool, setChapterTitleBool] = useState(STATE.INCORRECT)
   const [inputTitle, setTitle] = useState('')
-  const [titleBool, setTitleBool] = useState(false)
+  const [titleBool, setTitleBool] = useState(STATE.INCORRECT)
   const [inputVerse, setVerse] = useState('')
-  const [verseBool, setVerseBool] = useState(false)
+  const [verseBool, setVerseBool] = useState(STATE.INCORRECT)
   const[hintBool, setHintBool] = useState(false)
   const[diffBool, setDiffBool] = useState(false)
 
 
-  // function to check correctness of verse input
-  // so far only perform checking on full spelling of reference names
+  // function to check correctness of reference input
   const referenceChange = (e) => {
     const value = e.target.value;
     const string1 = String(value)
@@ -30,33 +34,27 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       .replace(/\s+/g, "")
       .toLowerCase()
       .normalize("NFC");
-    const bool = (string1 === string2);
+    var result = STATE.INCORRECT; // init
+    if (string1 === string2) {
+      result = STATE.CORRECT;
+    } else if (string2.startsWith(string1) & string1 !== "") {
+      result = STATE.PARTIAL
+    } else {
+      result = STATE.INCORRECT
+    }
 
     setReference(value);
-    setReferenceBool(bool);
+    setReferenceBool(result);
   };
 
-  {/* function to check correctness of verse input */}
-  const verseChange = (e) => {
-    const value = e.target.value;
-    let string1 = value;
-    let string2 = verse;
-    string1 = String(string1)
-      .replace(/[\p{P}\p{S}]/gu, "")
-      .replace(/\s+/g, "")
-      .toLowerCase()
-      .normalize("NFC");
-    string2 = String(string2)
-      .replace(/[\p{P}\p{S}]/gu, "")
-      .replace(/\s+/g, "")
-      .toLowerCase()
-      .normalize("NFC");
+  const referenceClassName = `reference-box${
+    referenceBool === STATE.CORRECT ? " correct" : 
+    referenceBool === STATE.PARTIAL ? " partial" : 
+    " incorrect"
+  }`;
 
-    const bool = string1 === string2;
 
-    setVerse(value);
-    setVerseBool(bool);
-  };
+
 
   {/* function to check correctness of title input */}
   const titleChange = (e) => {
@@ -75,11 +73,24 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       .toLowerCase()
       .normalize("NFC");
 
-    const bool = string1 === string2;
+    var result = STATE.INCORRECT; // init
+    if (string1 === string2) {
+      result = STATE.CORRECT;
+    } else if (string2.startsWith(string1) & string1 !== "") {
+      result = STATE.PARTIAL
+    } else {
+      result = STATE.INCORRECT
+    }
 
     setTitle(value);
-    setTitleBool(bool);
+    setTitleBool(result);
   };
+  const titleClassName = `chapter-title-box${
+    titleBool=== STATE.CORRECT ? " correct" : 
+    titleBool === STATE.PARTIAL ? " partial" : 
+    " incorrect"
+  }`;
+
 
 
   {/* function to check correctness of chapter title input */}
@@ -101,26 +112,75 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       .toLowerCase()
       .normalize("NFC");
 
-    const bool = string1 === string2;
+    var result = STATE.INCORRECT; // init
+    if (string1 === string2) {
+      result = STATE.CORRECT;
+    } else if (string2.startsWith(string1) & string1 !== "") {
+      result = STATE.PARTIAL
+    } else {
+      result = STATE.INCORRECT
+    }
 
     setChapterTitle(value);
-    setChapterTitleBool(bool);
+    setChapterTitleBool(result);
+  };
+  const chapterTitleClassName = `title-box${
+    chapterTitleBool=== STATE.CORRECT ? " correct" : 
+    chapterTitleBool === STATE.PARTIAL ? " partial" : 
+    " incorrect"
+  }`;
+
+
+  // check verse input
+  const verseChange = (e) => {
+    const value = e.target.value;
+    let string1 = value;
+    let string2 = verse;
+    string1 = String(string1)
+      .replace(/[\p{P}\p{S}]/gu, "")
+      .replace(/\s+/g, "")
+      .toLowerCase()
+      .normalize("NFC");
+    string2 = String(string2)
+      .replace(/[\p{P}\p{S}]/gu, "")
+      .replace(/\s+/g, "")
+      .toLowerCase()
+      .normalize("NFC");
+
+    var result = STATE.INCORRECT; // init
+    if (string1 === string2) {
+      result = STATE.CORRECT;
+    } else if (string2.startsWith(string1) & string1 !== "") {
+      result = STATE.PARTIAL
+    } else {
+      result = STATE.INCORRECT
+    }
+
+    setVerse(value);
+    setVerseBool(result);
   };
 
-  const DiffViewer = ({oldValue, newValue}) => {
-    const string1 = String(oldValue)
-      .replace(/[\p{P}\p{S}]/gu, "")
-      .toLowerCase()
-      .normalize("NFC");
+  const verseClassName = `verse-box${
+    verseBool === STATE.CORRECT ? " correct" : 
+    verseBool === STATE.PARTIAL ? " partial" : 
+    " incorrect"
+  }`;
 
 
-    const string2 = String(newValue)
-      .replace(/[\p{P}\p{S}]/gu, "")
-      .toLowerCase()
-      .normalize("NFC");
+  // const DiffViewer = ({oldValue, newValue}) => {
+  //   const string1 = String(oldValue)
+  //     .replace(/[\p{P}\p{S}]/gu, "")
+  //     .toLowerCase()
+  //     .normalize("NFC");
 
-    return (<StringDiff oldValue={string1} newValue={string2} diffMethod="diffWords" />)
-  }
+
+  //   const string2 = String(newValue)
+  //     .replace(/[\p{P}\p{S}]/gu, "")
+  //     .toLowerCase()
+  //     .normalize("NFC");
+
+  //   return (<StringDiff oldValue={string1} newValue={string2} diffMethod="diffWords" />)
+  // }
 
   const DiffViewerStrict = ({oldValue, newValue}) => {
     const string1 = String(oldValue)
@@ -144,7 +204,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
             {t('verse_validator.input_reference')} 
           </label>
           <textarea
-            className={`reference-box${referenceBool ? " correct" : ""}`}
+            className={referenceClassName}
             type="text"
             id="referenceBox"
             name="referenceBox"
@@ -164,7 +224,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
             {t('verse_validator.input_chapter_title')} 
           </label>
           <textarea
-            className={`chapter-title-box${chapterTitleBool ? " correct" : ""}`}
+            className={chapterTitleClassName}
             type="text"
             id="chapterTitleBox"
             name="chapterTitleBox"
@@ -178,7 +238,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
         {t('verse_validator.input_title')} 
       </label>
       <textarea
-        className={`title-box${titleBool ? " correct" : ""}`}
+        className={titleClassName}
         type="text"
         id="titleBox"
         name="titleBox"
@@ -190,7 +250,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
         {t('verse_validator.input_verse')} 
       </label>
       <textarea
-        className={`verse-box${verseBool ? " correct" : ""}`}
+        className={verseClassName}
         type="text"
         id="verseBox"
         name="verseBox"
@@ -221,7 +281,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
           {chapterTitle && (
             <div>
               ChapterTitle:
-              <DiffViewer
+              <DiffViewerStrict
                 oldValue={chapterTitle}
                 newValue={inputChapterTitle}
               />
@@ -231,7 +291,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
           <p></p>
           <div>
             Title: 
-            <DiffViewer 
+            <DiffViewerStrict 
               oldValue={title} 
               newValue={inputTitle} 
             />

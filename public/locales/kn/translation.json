@@ -23,6 +23,17 @@
         {
             "value": "loa",
             "label": "Lessons on Assurance"
+        },
+        {
+            "value": "tms60",
+            "label": "TMS60",
+            "children": [
+                { "value": "tms-60-pack-a", "label": "Living the New Life" },
+                { "value": "tms-60-pack-b", "label": "Proclaiming Christ" },
+                { "value": "tms-60-pack-c", "label": "Reliance on God's Resources" },
+                { "value": "tms-60-pack-d", "label": "Being Christ's Disciple" },
+                { "value": "tms-60-pack-e", "label": "Growth in Christlikeness" }
+            ]
         }
     ]
 }
