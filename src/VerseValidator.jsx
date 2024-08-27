@@ -21,6 +21,12 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
   const [verseBool, setVerseBool] = useState(STATE.INCORRECT)
   const[hintBool, setHintBool] = useState(false)
   const[diffBool, setDiffBool] = useState(false)
+ const [isComposing, setIsComposing] = useState(false);
+
+  // Handle the start of composition
+  const handleCompositionStart = () => {
+    setIsComposing(true);
+  };
 
 
   // function to check correctness of reference input
@@ -208,7 +214,16 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
             type="text"
             id="referenceBox"
             name="referenceBox"
-            onChange={referenceChange}
+            onChange={(event) => {
+              if (!isComposing) {
+                referenceChange(event);
+              }
+            }}
+            onCompositionStart={handleCompositionStart}
+            onCompositionEnd={(event) => {
+              setIsComposing(false);
+              referenceChange(event);
+            }}
           />
         </div>
       ) : (
@@ -228,7 +243,17 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
             type="text"
             id="chapterTitleBox"
             name="chapterTitleBox"
-            onChange={chapterTitleChange}
+            onChange={(event) => {
+              if (!isComposing) {
+                chapterTitleChange(event);
+              }
+            }}
+            onCompositionStart={handleCompositionStart}
+            onCompositionEnd={(event) => {
+              setIsComposing(false);
+              chapterTitleChange(event);
+            }}
+
           />
         </div>
       )}
@@ -242,7 +267,17 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
         type="text"
         id="titleBox"
         name="titleBox"
-        onChange={titleChange}
+        onChange={(event) => {
+          if (!isComposing) {
+            titleChange(event);
+          }
+        }}
+        onCompositionStart={handleCompositionStart}
+        onCompositionEnd={(event) => {
+          setIsComposing(false);
+          titleChange(event);
+        }}
+
       />
 
       {/* input box for verse */}
@@ -254,7 +289,18 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
         type="text"
         id="verseBox"
         name="verseBox"
-        onChange={verseChange}
+        onChange={(event) => {
+          if (!isComposing) {
+            verseChange(event);
+          }
+        }}
+        onCompositionStart={handleCompositionStart}
+        onCompositionEnd={(event) => {
+          setIsComposing(false);
+          verseChange(event);
+        }}
+
+
       />
 
       {/* button to toggle show answer*/}
