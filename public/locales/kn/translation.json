@@ -51,7 +51,27 @@
                 { "value": "dep-2-part-b", "label": "QT란 무엇인가?" },
                 { "value": "dep-2-part-c", "label": "QT의 본" }
             ]
+        },
+        {
+            "value": "dep-3",
+            "label": "DEP 3",
+            "children": [
+                { "value": "dep-3-part-a", "label": "말씀의 권위" },
+                { "value": "dep-3-part-b", "label": "말씀의 가치" },
+                { "value": "dep-3-part-c", "label": "말씀에 대한 태도" },
+                { "value": "dep-3-part-d", "label": "말씀의 섭취 방법 말씀의 손 예화" }
+            ]
+        },
+        {
+            "value": "dep-4",
+            "label": "DEP 4",
+            "children": [
+                { "value": "dep-4-part-a", "label": "기도의 명령" },
+                { "value": "dep-4-part-b", "label": "기도의 약속과 축복" },
+                { "value": "dep-4-part-c", "label": "응답받는 기도의 조건" },
+                { "value": "dep-4-part-d", "label": "기도의 본" },
+                { "value": "dep-4-part-e", "label": "기도의 손 예화" }
+            ]
         }
-
     ]
 }
