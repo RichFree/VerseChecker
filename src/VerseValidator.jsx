@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./VerseValidator.css";
 import { StringDiff } from "react-string-diff";
+import { containsKorean, jamoSubstringMatch } from './jamoUtils';
 
 const STATE = {
   INCORRECT: 0,
@@ -21,13 +22,38 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
   const [verseBool, setVerseBool] = useState(STATE.INCORRECT)
   const[hintBool, setHintBool] = useState(false)
   const[diffBool, setDiffBool] = useState(false)
- const [isComposing, setIsComposing] = useState(false);
+  const [isComposing, setIsComposing] = useState(false);
+
+
 
   // Handle the start of composition
   const handleCompositionStart = () => {
     setIsComposing(true);
   };
 
+  function resultChecker(string1, string2) {
+    var result = STATE.INCORRECT; // init
+    // contains korean
+    if (containsKorean(string1)) {
+      if (string1 === string2) {
+        result = STATE.CORRECT;
+      } else if (jamoSubstringMatch(string2, string1) & string1 !== "") {
+        result = STATE.PARTIAL;
+      } else {
+        result = STATE.INCORRECT;
+      }
+    } else { // does not contain korean
+      if (string1 === string2) {
+        result = STATE.CORRECT;
+      } else if (string2.startsWith(string1) & string1 !== "") {
+        result = STATE.PARTIAL;
+      } else {
+        result = STATE.INCORRECT;
+      }
+    }
+    return result;
+
+  }
 
   // function to check correctness of reference input
   const referenceChange = (e) => {
@@ -40,14 +66,8 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       .replace(/\s+/g, "")
       .toLowerCase()
       .normalize("NFC");
-    var result = STATE.INCORRECT; // init
-    if (string1 === string2) {
-      result = STATE.CORRECT;
-    } else if (string2.startsWith(string1) & string1 !== "") {
-      result = STATE.PARTIAL
-    } else {
-      result = STATE.INCORRECT
-    }
+    
+    const result = resultChecker(string1, string2);
 
     setReference(value);
     setReferenceBool(result);
@@ -79,14 +99,9 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       .toLowerCase()
       .normalize("NFC");
 
-    var result = STATE.INCORRECT; // init
-    if (string1 === string2) {
-      result = STATE.CORRECT;
-    } else if (string2.startsWith(string1) & string1 !== "") {
-      result = STATE.PARTIAL
-    } else {
-      result = STATE.INCORRECT
-    }
+
+    const result = resultChecker(string1, string2);
+
 
     setTitle(value);
     setTitleBool(result);
@@ -118,14 +133,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       .toLowerCase()
       .normalize("NFC");
 
-    var result = STATE.INCORRECT; // init
-    if (string1 === string2) {
-      result = STATE.CORRECT;
-    } else if (string2.startsWith(string1) & string1 !== "") {
-      result = STATE.PARTIAL
-    } else {
-      result = STATE.INCORRECT
-    }
+    const result = resultChecker(string1, string2);
 
     setChapterTitle(value);
     setChapterTitleBool(result);
@@ -153,14 +161,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       .toLowerCase()
       .normalize("NFC");
 
-    var result = STATE.INCORRECT; // init
-    if (string1 === string2) {
-      result = STATE.CORRECT;
-    } else if (string2.startsWith(string1) & string1 !== "") {
-      result = STATE.PARTIAL
-    } else {
-      result = STATE.INCORRECT
-    }
+    const result = resultChecker(string1, string2);
 
     setVerse(value);
     setVerseBool(result);
@@ -215,14 +216,10 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
             id="referenceBox"
             name="referenceBox"
             onChange={(event) => {
+              
               if (!isComposing) {
                 referenceChange(event);
               }
-            }}
-            onCompositionStart={handleCompositionStart}
-            onCompositionEnd={(event) => {
-              setIsComposing(false);
-              referenceChange(event);
             }}
           />
         </div>
