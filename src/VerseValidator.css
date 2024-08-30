@@ -12,6 +12,7 @@
 .reference-box {
   max-width:400px;
   height: 5vh;
+  field-sizing: content; /* not yet implemented in firefox and safari */
   display: block;
   width: 99%;
   border: 1px solid grey;
@@ -22,6 +23,7 @@
 .chapter-title-box {
   max-width:400px;
   height: 5vh;
+  field-sizing: content; /* not yet implemented in firefox and safari */
   display: block;
   width: 99%;
   border: 1px solid grey;
@@ -32,6 +34,7 @@
 .title-box {
   max-width: 400px;
   height: 5vh;
+  field-sizing: content; /* not yet implemented in firefox and safari */
   display: block;
   width: 99%;
   border: 1px solid grey;
@@ -46,7 +49,8 @@
 
 .verse-box {
   max-width:400px;
-  height: 10vh;
+  min-height: 12vh;
+  field-sizing: content; /* not yet implemented in firefox and safari */
   display: block;
   width: 99%;
   border: 1px solid grey;
@@ -73,18 +77,19 @@
 @media (prefers-color-scheme: light) {
   .correct {
     background-color: #e6ffe6; /* Change the background color as needed */
-  }
-}
+  } 
 
-@media (prefers-color-scheme: light) {
   .partial {
     background-color: #dafcff; /* Change the background color as needed */
   }
-}
 
-@media (prefers-color-scheme: light) {
   .incorrect {
     background-color: transparent; /* Change the background color as needed */
+  }
+
+  :root {
+    --background-color-removed: #fff8b7;
+    --background-color-added: #ffd7b6;
   }
 }
 
@@ -93,17 +98,19 @@
   .correct {
     background-color: #2e5e2e; /* Change the background color as needed */
   }
-}
 
-@media (prefers-color-scheme: dark) {
   .partial {
     background-color: #004d5c; /* Change the background color as needed */
   }
-}
 
-@media (prefers-color-scheme: dark) {
   .incorrect {
     background-color: transparent; /* Change the background color as needed */
   }
+
+  :root {
+    --background-color-removed: #877e2a;
+    --background-color-added: #7b4418;
+  }
+
 }
 

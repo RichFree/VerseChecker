@@ -1,3 +1,5 @@
+// jamo utils
+
 const BASE_CODE = 44032;
 const CHO = 588;
 const JUNG = 28;

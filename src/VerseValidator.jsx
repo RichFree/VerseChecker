@@ -1,13 +1,15 @@
 import { useState } from "react";
 import "./VerseValidator.css";
 import { StringDiff } from "react-string-diff";
-import { containsKorean, jamoSubstringMatch } from './jamoUtils';
+import { useDarkMode, containsKorean, jamoSubstringMatch } from './utils';
 
 const STATE = {
   INCORRECT: 0,
   PARTIAL: 1,
   CORRECT: 2,
 };
+
+ 
 
 // function to render and handle logic of each of the cells
 const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference, t}) => {  // useful use of destructuring here
@@ -198,7 +200,38 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       .toLowerCase()
       .normalize("NFC");
 
-    return (<StringDiff oldValue={string1} newValue={string2} diffMethod="diffWords" />)
+
+    let diffStyle = {
+      added: {
+        backgroundColor: 'var(--background-color-added)'
+      },
+      removed: {
+        backgroundColor: 'var(--background-color-removed)'
+      },
+      default: {}
+    };
+
+    // if (isDarkMode) {
+    //   diffStyle = {
+    //     added: {
+    //       backgroundColor: '#760f46'
+    //     },
+    //     removed: {
+    //       backgroundColor: '#be7a0d'
+    //     },
+    //     default: {}
+    //   };
+
+    // }
+
+
+
+    return (<StringDiff 
+      oldValue={string1} 
+      newValue={string2} 
+      diffMethod="diffWords" 
+      styles={diffStyle}
+      />)
   }
 
 

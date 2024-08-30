@@ -37,11 +37,11 @@
         },
         {
             "value": "dep-1",
-            "label": "DEP 1"
+            "label": "DEP 1: Assurance of Salvation"
         },
         {
             "value": "dep-2",
-            "label": "DEP 2",
+            "label": "DEP 2: Quiet Time",
             "children": [
                 { "value": "dep-2-part-a", "label": "Why do we have Quiet Time?" },
                 { "value": "dep-2-part-b", "label": "What is Quiet Time?" },
@@ -50,7 +50,7 @@
         },
         {
             "value": "dep-3",
-            "label": "DEP 3",
+            "label": "DEP 3: The Word",
             "children": [
                 { "value": "dep-3-part-a", "label": "Authority of the Word" },
                 { "value": "dep-3-part-b", "label": "value of the Word" },
@@ -60,7 +60,7 @@
         },
         {
             "value": "dep-4",
-            "label": "DEP 4",
+            "label": "DEP 4: Prayer",
             "children": [
                 { "value": "dep-4-part-a", "label": "Command of Prayer" },
                 { "value": "dep-4-part-b", "label": "Promises and Blessings of Prayer" },
@@ -71,7 +71,7 @@
         },
         {
             "value": "dep-5",
-            "label": "DEP 5",
+            "label": "DEP 5: Fellowship",
             "children": [
                 { "value": "dep-5-part-a", "label": "Foundation of Christian Fellowship" },
                 { "value": "dep-5-part-b", "label": "Importance of fellowship" },
@@ -82,12 +82,28 @@
         },
         {
             "value":"dep-6",
-            "label":"DEP 6",
+            "label":"DEP 6: Witnessing",
             "children": [
                 { "value": "dep-6-part-a", "label": "Who is responsible for witnessing?" },
                 { "value": "dep-6-part-b", "label": "Why should we witness?" },
-                { "value": "dep-6-part-c", "label": "How do we witness?" }
+                { "value": "dep-6-part-c", "label": "How do we witness?" },
+                { "value": "dep-6-part-d", "label": "Examples of witness" },
+                { "value": "dep-6-part-e", "label": "Bridge Illustration" }
             ]
+        },
+        {
+            "value":"dep-7",
+            "label":"DEP 7: The Lordship of Christ",
+            "children": [
+                { "value": "dep-7-part-a", "label": "We must believe in the Lordship of Christ" },
+                { "value": "dep-7-part-b", "label": "Blessings when surrendering to the Lordship" },
+                { "value": "dep-7-part-c", "label": "What to surrender in the Lordship" },
+                { "value": "dep-7-part-d", "label": "Paragons of surrendering to the Lordship" }
+            ]
+        },
+        {
+            "value": "dep-8",
+            "label": "DEP 8: World Vision"
         }
     ]
 }

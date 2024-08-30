@@ -1566,14 +1566,14 @@
       {
         "pack": "DEP 6",
         "chapterTitle": "Why should we witness?",
-        "title": "God’s great concern for men",
+        "title": "God's great concern for men",
         "reference": "Jonah 4:10-11",
         "verse": "But the LORD said, You have been concerned about this vine, though you did not tend it or make it grow. It sprang up overnight and died overnight. But Nineveh has more than a hundred and twenty thousand people who cannot tell their right hand from their left, and many cattle as well. Should I not be concerned about that great city?"
       },
       {
         "pack": "DEP 6",
         "chapterTitle": "Why should we witness?",
-        "title": "God rejoices over one sinner’s repentance",
+        "title": "God rejoices over one sinner's repentance",
         "reference": "Luke 15:7",
         "verse": "I tell you that in the same way there will be more rejoicing in heaven over one sinner who repents than over ninety-nine righteous persons who do not need to repent."
       },
@@ -1683,6 +1683,538 @@
         "title": "Have an evangelical Bible study",
         "reference": "Acts 17:2-3",
         "verse": "As his custom was, Paul went into the synagogue, and on three Sabbath days he reasoned with them from the Scriptures, explaining and proving that the Christ had to suffer and rise from the dead. This Jesus I am proclaiming to you is the Christ, he said."
+      }
+    ],
+    "dep-6-pack-d": [
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Examples of witness",
+        "title": "Paul",
+        "reference": "Acts 20:24",
+        "verse": "However, I consider my life worth nothing to me, if only I may finish the race and complete the task the Lord Jesus has given me - the task of testifying to the gospel of God's grace."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Examples of witness",
+        "title": "Philip",
+        "reference": "Acts 8:29-30",
+        "verse": "The Spirit told Philip, \"Go to that chariot and stay near it.\" Then Philip ran up to the chariot and heard the man reading Isaiah the prophet, \"Do you understand what you are reading?\" Philip asked."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Examples of witness",
+        "title": "Peter and John",
+        "reference": "Acts 4:20",
+        "verse": "For we cannot help speaking about what we have seen and heard."
+      }
+    ],
+    "dep-6-part-e": [
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Created in His own image",
+        "reference": "Genesis 1:27",
+        "verse": "So God created man in his own image, in the image of God he created him; male and female he created them."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Separated from God by our sin",
+        "reference": "Isaiah 59:1-2",
+        "verse": "Surely the arm of the LORD is not too short to save, nor his ear too dull to hear. But your iniquities have separated you from your God; your sins have hidden his face from you, so that he will not hear."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Man's condition - Sinner",
+        "reference": "Romans 5:12",
+        "verse": "Therefore, just as sin entered the world through one man, and death through sin, and in this way death came to all men, because all sinned."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Man's condition - Sinner",
+        "reference": "Romans 3:23",
+        "verse": "For all have sinned and fall short of the glory of God."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Man's condition - Judgment",
+        "reference": "Hebrews 9:27",
+        "verse": "Just as man is destined to die once, and after that to face judgment"
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Man's condition - Judgment",
+        "reference": "2 Thessalonians 1:8-9",
+        "verse": "He will punish those who do not know God and do not obey the gospel of our Lord Jesus. They will be punished with everlasting destruction and shut out from the presence of the Lord and from the majesty of his power."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Man's condition - Eternal death",
+        "reference": "Romans 6:23",
+        "verse": "For the wages of sin is death, but the gift of God is eternal life in Christ Jesus our Lord"
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Man's condition - Eternal death",
+        "reference": "Revelation 21:8",
+        "verse": "But the cowardly, the unbelieving, the vile, the murderers, the sexually immoral, those who practice magic arts, the idolaters and all liars - their place will be in the fiery lake of burning sulfur. This is the second death.\""
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Salvation not by ourselves - Works",
+        "reference": "Ephesians 2:8-9",
+        "verse": "For it is by grace you have been saved, through faith - and this not from yourselves, it is the gift of God - not by works, so that no one can boast."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Salvation not by ourselves - Works",
+        "reference": "Galatians 2:21",
+        "verse": "I do not set aside the grace of God, for if righteousness could be gained through the law, Christ died for nothing."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Salvation not by ourselves - Religion",
+        "reference": "Acts 4:12",
+        "verse": "Salvation is found in no one else, for there is no other name under heaven given to men by which we must be saved."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Salvation not by ourselves - Money",
+        "reference": "1 Peter 1:18",
+        "verse": "For you know that it was not with perishable things such as silver or gold that you were redeemed from the empty way of life handed down to you from your forefathers."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Salvation not by ourselves - Miracles and wonders",
+        "reference": "1 Corinthians 1:22-23",
+        "verse": "Jews demand miraculous signs and Greeks look for wisdom, but we preach Christ crucified: a stumbling block to Jews and foolishness to Gentiles."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Salvation not by ourselves - Wisdom",
+        "reference": "1 Corinthians 1:21",
+        "verse": "For since in the wisdom of God the world through its wisdom did not know him, God was pleased through the foolishness of what was preached to save those who believe."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Salvation not by ourselves - Philosophy and tradition",
+        "reference": "Colossians 2:8 (NASB)",
+        "verse": "See to it that no one takes you captive through philosophy and empty deception, according to the tradition of men, according to the elementary principles of the world, rather than according to Christ."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Salvation not by ourselves - Natural descent",
+        "reference": "John 1:13",
+        "verse": "Children born not of natural descent, nor of human decision or a husband's will, but born of God."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Salvation not by ourselves - The flesh counts for nothing",
+        "reference": "John 3:6-7",
+        "verse": "Flesh gives birth to flesh, but the Spirit gives birth to spirit. You should not be surprised at my saying, \"You must be born again.\""
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Salvation not by ourselves - The flesh counts for nothing",
+        "reference": "John 6:63",
+        "verse": "The Spirit gives life, the flesh counts for nothing. The words I have spoken to you are spirit and they are life."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "God's solution - Bridge bringing us to God",
+        "reference": "1 Peter 3:18",
+        "verse": "For Christ died for sins once for all, the righteous for the unrighteous, to bring you to God. He was put to death in the body but made alive by the Spirit."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "God's solution - God gave His only begotten Son",
+        "reference": "John 3:16 (NASB)",
+        "verse": "For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish, but have eternal life."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "God's solution - Jesus died for our sin",
+        "reference": "Romans 5:8",
+        "verse": "But God demonstrates his own love for us in this: While we were still sinners, Christ died for us."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "God's solution - Jesus resurrected",
+        "reference": "1 Corinthians 15:3-4 (KJV)",
+        "verse": "For I delivered unto you first of all that which I also received, how that Christ died for our sins according to the scriptures; and that he was buried, and that he rose again the third day according to the scriptures."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "God's solution - Forgiving us all our sins",
+        "reference": "Colossians 2:13",
+        "verse": "When you were dead in your sins and in the uncircumcision of your sinful nature, God made you alive with Christ. He forgave us all our sins."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Man must - Hear and believe",
+        "reference": "John 5:24",
+        "verse": "I tell you the truth, whoever hears my word and believes him who sent me has eternal life and will not be condemned; he hsa crossed over from death to life."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Man must - Receive Jesus",
+        "reference": "John 1:12",
+        "verse": "Yet to all who received him, to those who believed in his name, he gave the right to become children of God."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Man must - Receive Jesus",
+        "reference": "Revelation 3:20",
+        "verse": "Here I am! I stand at the door and knock. If anyone hears my voice and opens the door, I will come in and eat with him, and he with me."
+      },
+      {
+        "pack": "DEP6",
+        "chapterTitle": "Bridge Illustration",
+        "title": "Man must - Pray to receive Jesus",
+        "reference": "Romans 10:9-10",
+        "verse": "That if you confess with your mouth, \"Jesus is Lord,\" and believe in your heart that God raised him from the dead, you will be saved. For it is with your heart that you believe and are justified, and it is with your mouth that you confess and are saved."
+      }
+    ],
+    "dep-7-part-a": [
+      {
+        "pack": "DEP7",
+        "chapterTitle": "We must believe in the Lordship of Christ",
+        "title": "The Creator",
+        "reference": "John 1:2-3",
+        "verse": "He was with God in the beginning. Through him all things were made; without him nothing was made that has been made."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "We must believe in the Lordship of Christ",
+        "title": "The Lord of all creation",
+        "reference": "Colossians 1:16-17",
+        "verse": "For by him all things were created: things in heaven and on earth, visible and invisible, whether thrones or powers or rulers or authorities; all things were created by him and for him. He is before all things, and in him all things hold together."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "We must believe in the Lordship of Christ",
+        "title": "The head of the church",
+        "reference": "Colossians 1:18",
+        "verse": "And he is the head of the body, the church; he is the beginning and the firstborn from among the dead, so that in everything he might have the supremacy."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "We must believe in the Lordship of Christ",
+        "title": "Far above all power",
+        "reference": "Ephesians 1:21",
+        "verse": "Far above all rule and authority, power and dominion, and every title that can be given, not only in the present age but also in the one to come."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "We must believe in the Lordship of Christ",
+        "title": "The Lord of everyone",
+        "reference": "Philippians 2:10-11",
+        "verse": "That at the name of Jesus every knee should bow, in heaven and on earth and under the earth, and every tongue confess that Jesus Christ is Lord to the glory of God the Father."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "We must believe in the Lordship of Christ",
+        "title": "The Lord of both the dead and the living",
+        "reference": "Romans 14:9",
+        "verse": "For this very reason, Christ died and returned to life so that he might be the Lord of both the dead and the living"
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "We must believe in the Lordship of Christ",
+        "title": "Bought with Christ's life price",
+        "reference": "1 Corinthians 6:19-20",
+        "verse": "Do you not know that your body is a temple of the Holy Spirit, who is in you, whom you have received from God? You are not your own; you were bought at a price. Therefore honor God with your body."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "We must believe in the Lordship of Christ",
+        "title": "Make the decision of commitment to the Lordship",
+        "reference": "2 Corinthians 5:15",
+        "verse": "And he died for all, that those who live should no longer live for themselves but for him who died for them and was raised again."
+      }
+    ],
+    "dep-7-part-b": [
+      {
+        "pack": "DEP7",
+        "chapterTitle": "Blessings when surrendering to the Lordship",
+        "title": "Satisfying all our needs",
+        "reference": "Matthew 6:33",
+        "verse": "But seek first his kingdom and his righteousness, and all these things will be given to you as well"
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "Blessings when surrendering to the Lordship",
+        "title": "Abundant reward",
+        "reference": "Mark 10:29-30",
+        "verse": "I tell you the truth.\" Jesus replied. \"no one who has left home or brothers or sisters or mother or father or children or fields for me and the gospel will fail to receive a hundred times as much in this present age (homes, brothers, sisters, mothers, children and fields - and with them, persecutions) and in the age to come, eternal life."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "Blessings when surrendering to the Lordship",
+        "title": "Giving His promise",
+        "reference": "Genesis 22:16-17",
+        "verse": "And said, \"I swear by myself, declares the LORD, that because you have done this and have not withheld your son, your only son. I will surely bless you and make your descendants as numerous as the stars in the sky and as the sand on the seashore. Your descendants will take possession of the cities of their enemies.\""
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "Blessings when surrendering to the Lordship",
+        "title": "Accompanying us",
+        "reference": "1 Chronicles 28:9",
+        "verse": "And you, my son Solomon, acknowledge the God of your father, and serve him with wholehearted devotion and with a willing mind, for the LORD searches every heart and understands every motive behind the thoughts. If you seek him, he will be found by you; but if you forsake him, he will reject you forever."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "Blessings when surrendering to the Lordship",
+        "title": "Giving His power",
+        "reference": "2 Chronicles 16:9a",
+        "verse": "For the eyes of the LORD range throughout the earth to strengthen those whose hearts are fully committed to him."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "Blessings when surrendering to the Lordship",
+        "title": "Protecting us",
+        "reference": "Psalm 91:14",
+        "verse": "Because he loves me.\" says the LORD, \"I will rescue him, I will protect him, for he acknowledges my name."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "Blessings when surrendering to the Lordship",
+        "title": "Honoring us",
+        "reference": "1 Samuel 2:30b",
+        "verse": "Those who honor me I will honor, but those who despise me will be disdained."
+      }
+    ],
+    "dep-7-part-c": [
+      {
+        "pack": "DEP7",
+        "chapterTitle": "What to surrender in the Lordship",
+        "title": "Self",
+        "reference": "Luke 9:23",
+        "verse": "Then he said to them all: \"If anyone would come after me, he must deny himself and take up his cross daily and follow me.\""
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "What to surrender in the Lordship",
+        "title": "Relationship with others",
+        "reference": "Proverbs 16:7",
+        "verse": "When a man's ways are pleasing to the LORD, he makes even his enemies live at peace with him."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "What to surrender in the Lordship",
+        "title": "Life paths",
+        "reference": "Proverbs 3:5-6",
+        "verse": "Trust in the LORD with all your heart and lean not on your own understanding; in all your ways acknowledge him, and he will make your paths straight."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "What to surrender in the Lordship",
+        "title": "Worldly desires",
+        "reference": "Ephesians 4:22-24",
+        "verse": "You were taught with regard to your former way of life, to put off the old self, which is being corrupted by its deceitful desires; to be made new in the attitude of your minds; and to put on the new self, created to be like God in true righteousness and holiness."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "What to surrender in the Lordship",
+        "title": "Lusts",
+        "reference": "2 Timothy 2:22",
+        "verse": "Flee also youthful lusts; but follow righteousness, faith, charity, peace, with them that call on the Lord out of a pure heart."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "What to surrender in the Lordship",
+        "title": "Possessions",
+        "reference": "1 Timothy 6:7-9",
+        "verse": "For we brought nothing into this world, and we can take nothing out of it. But if we have food and clothing, we will be content with that. People who want to get rich fall into temptation and a trap and into many foolish and harmful desires that plunge men into ruin and destruction."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "What to surrender in the Lordship",
+        "title": "Time managing",
+        "reference": "Ephesians 5:15-16",
+        "verse": "Be very careful, then, how you live -- not as unwise but as wise, making the most of every opportunity, because the days are evil."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "What to surrender in the Lordship",
+        "title": "God's calling",
+        "reference": "Mark 1:20",
+        "verse": "Without delay he called them, and they left their father Zebedee in the boat with the hired men and followed him."
+      }
+    ],
+    "dep-7-part-d": [
+      {
+        "pack": "DEP7",
+        "chapterTitle": "Paragons of surrendering to the Lordship",
+        "title": "Paul",
+        "reference": "Philippians 1:20",
+        "verse": "I eagerly expect and hope that I will in no way be ashamed, but will have sufficient courage so that now as always Christ will be exalted in my body, whether by life or by death"
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "Paragons of surrendering to the Lordship",
+        "title": "Timothy",
+        "reference": "Philippians 2:21-22",
+        "verse": "For everyone looks out for his own interests, not those of Jesus Christ. But you know that Timothy has proved himself, because as a son with his father he has served with me in the work of the gospel."
+      },
+      {
+        "pack": "DEP7",
+        "chapterTitle": "Paragons of surrendering to the Lordship",
+        "title": "Our faith fathers",
+        "reference": "Hebrews 11:36-38a",
+        "verse": "Some faced jeers and flogging, while still others were chained and put in prison. They were stoned; they were sawed in two; they were put to death by the sword. They went about in sheepskins and goatskins, destitute, persecuted and mistreated - the world was not worthy of them."
+      }
+    ],
+    "dep-8": [
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "God's concern and promise for the world",
+        "reference": "Genesis 12:2-3",
+        "verse": "I will make you into a great nation, and I will bless you. I will make your name great, and you will be a blessing. I will bless those who bless you, and whoever curses you I will curse; and all peoples on earth will be blessed through you."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "God's concern and promise for the world",
+        "reference": "Isaiah 49:6",
+        "verse": "He says: \"It is too small a thing for you to be my servant to restore the tribes of Jacob and bring back those of Israel I have kept. I will also make you a light for the Gentiles, that you may bring my salvation to the ends of the earth.\""
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Great Commission",
+        "reference": "Matthew 28:19-20",
+        "verse": "Therefore go and make disciples of all nations, baptising them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Great Commission",
+        "reference": "Acts 1:8",
+        "verse": "But you will receive power when the Holy Spirit comes on you; and you will be my witnesses in Jerusalem, and in all Judea and Samaria, and to the ends of the earth."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Commit yourself to the mission",
+        "reference": "Isaiah 6:8",
+        "verse": "Then I heard the voice of the Lord saying, \"Whom shall I send? And who will go for us?\" And I said, \"Here am I, send me!\""
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Commit yourself to the mission",
+        "reference": "Romans 15:16",
+        "verse": "To be a minister of Christ Jesus to the Gentiles with the priestly duty of proclaiming the gospel of God, so that the Gentiles might become an offering acceptable to God, sanctified by the Holy Spirit."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Pray for the world",
+        "reference": "Psalm 57:5",
+        "verse": "Be exalted, O God, above the heavens; let your glory be over all the earth."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Pray for the world",
+        "reference": "Psalm 2:8",
+        "verse": "Ask of me and I will make the nations your inheritance; the ends of the earth your possession."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Preach the gospel",
+        "reference": "Titus 1:2-3",
+        "verse": "A faith and knowledge resting on the hope of eternal life, which God, who does not lie, promised before the beginning of time, and at his appointed season he brought his word to light through the preaching entrusted to me by the command of God our Saviour."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Preach the gospel",
+        "reference": "2 Timothy 4:17",
+        "verse": "But the Lord stood at my side and gave me strength, so that through me the message might be fully proclaimed and all the Gentiles might hear it. And I was delivered from the lion's mouth."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Help them grow in Christ",
+        "reference": "Colossians 1:28-29",
+        "verse": "We proclaim him, admonishing and teaching everyone with all wisdom, so that we may present everyone perfect in Christ. To this end I labour, struggling with all his energy, which so powerfully works in me."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Help them grow in Christ",
+        "reference": "Philippians 1:9-11",
+        "verse": "And this is my prayer: that your love may abound more and more in knowledge and depth of insight, so that you may be able to discern what is best and may be pure and blameless until the day of Christ, filled with the fruit of righteousness that comes through Jesus Christ - to the glory and praise of God."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Spiritual multiplication",
+        "reference": "2 Timothy 2:2",
+        "verse": "And the things you heard me say in the presence of many witnesses entrust to reliable men who will also be qualified to teach others."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Spiritual multiplication",
+        "reference": "Isaiah 60:22",
+        "verse": "The least of you will become a thousand, the smallest a mighty nation. I am the LORD; in its time I will do this swiftly."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Live a simple and wholehearted life",
+        "reference": "Hebrews 12:1",
+        "verse": "Therefore, since we are surrounded by such a great cloud of witnesses, let us throw off everything that hinders and the sin that so easily entangles, and let us run with perseverance the race marked out for us."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Live a simple and wholehearted life",
+        "reference": "2 Chronicles 16:9a",
+        "verse": "For the eyes of the LORD range throughout the earth to strengthen those whose hearts are fully committed to him."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Glory of the mission finish",
+        "reference": "Habakkuk 2:14",
+        "verse": "For the earth will be filled with the knowledge of the glory of the LORD, as the waters cover the sea."
+      },
+      {
+        "pack": "DEP8",
+        "chapterTitle": null,
+        "title": "Glory of the mission finish",
+        "reference": "Malachi 1:11",
+        "verse": "\"My name will be great among the nations, from the rising to the setting of the sun. In every place incense and pure offerings will be brought to my name, because my name will be great among the nations,\" says the LORD Almighty."
       }
     ]
   },
