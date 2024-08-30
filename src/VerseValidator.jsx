@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./VerseValidator.css";
 import { StringDiff } from "react-string-diff";
-import { useDarkMode, containsKorean, jamoSubstringMatch } from './utils';
+import { containsKorean, jamoSubstringMatch } from './utils';
 
 const STATE = {
   INCORRECT: 0,
@@ -210,20 +210,6 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       },
       default: {}
     };
-
-    // if (isDarkMode) {
-    //   diffStyle = {
-    //     added: {
-    //       backgroundColor: '#760f46'
-    //     },
-    //     removed: {
-    //       backgroundColor: '#be7a0d'
-    //     },
-    //     default: {}
-    //   };
-
-    // }
-
 
 
     return (<StringDiff 
