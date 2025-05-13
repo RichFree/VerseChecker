@@ -12,7 +12,7 @@ const STATE = {
  
 
 // function to render and handle logic of each of the cells
-const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference, t}) => {  // useful use of destructuring here
+const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference, t, index}) => {  // useful use of destructuring here
 
   const [inputReference, setReference] = useState('')
   const [referenceBool, setReferenceBool] = useState(STATE.INCORRECT)
@@ -25,6 +25,19 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
   const[hintBool, setHintBool] = useState(false)
   const[diffBool, setDiffBool] = useState(false)
   const [isComposing, setIsComposing] = useState(false);
+
+  // handle reset
+  const handleReset = () => {
+    setReference('');
+    setReferenceBool(STATE.INCORRECT);
+    setChapterTitle('');
+    setChapterTitleBool(STATE.INCORRECT);
+    setTitle('');
+    setTitleBool(STATE.INCORRECT);
+    setVerse('');
+    setVerseBool(STATE.INCORRECT);
+    setDiffBool(false); // optionally hide answer again
+  };
 
 
 
@@ -223,6 +236,10 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
 
   return (
     <div className="VerseValidator">
+      <div className="verse-number">
+        <h3>Verse {index}</h3>
+      </div>
+
       {/* toggle hiding reference */}
       {toHideReference ? (
         <div>
@@ -234,6 +251,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
             type="text"
             id="referenceBox"
             name="referenceBox"
+            value={inputReference}
             onChange={(event) => {
               
               if (!isComposing) {
@@ -259,6 +277,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
             type="text"
             id="chapterTitleBox"
             name="chapterTitleBox"
+            value={inputChapterTitle}
             onChange={(event) => {
               if (!isComposing) {
                 chapterTitleChange(event);
@@ -283,6 +302,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
         type="text"
         id="titleBox"
         name="titleBox"
+        value={inputTitle}
         onChange={(event) => {
           if (!isComposing) {
             titleChange(event);
@@ -305,6 +325,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
         type="text"
         id="verseBox"
         name="verseBox"
+        value={inputVerse}
         onChange={(event) => {
           if (!isComposing) {
             verseChange(event);
@@ -323,6 +344,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       <div className="answer-button-box">
         {/* <button onClick={() => setHintBool(!hintBool)}>Show Answer:</button> */}
         <button onClick={() => setDiffBool(!diffBool)}>Show Answer:</button>
+        <button onClick={handleReset}>Reset</button>
       </div>
 
       {/* This shows the difference between given and input answers*/}

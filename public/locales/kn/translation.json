@@ -72,6 +72,42 @@
                 { "value": "dep-4-part-d", "label": "기도의 본" },
                 { "value": "dep-4-part-e", "label": "기도의 손 예화" }
             ]
+        },
+        {
+            "value": "dep-5",
+            "label": "DEP 5",
+            "children": [
+                { "value": "dep-5-part-a", "label": "교제의 기초" },
+                { "value": "dep-5-part-b", "label": "교제의 중요성" },
+                { "value": "dep-5-part-c", "label": "교제의 요소" },
+                { "value": "dep-5-part-d", "label": "교제의 태도" },
+                { "value": "dep-5-part-e", "label": "교제에서의 문제 해결" }
+            ]
+        },
+        {
+            "value":"dep-6",
+            "label":"DEP 6",
+            "children": [
+                { "value": "dep-6-part-a", "label": "전도는 누구의 책임인가?" },
+                { "value": "dep-6-part-b", "label": "왜 전도를 해야 하나?" },
+                { "value": "dep-6-part-c", "label": "어떻게 전도하나?" },
+                { "value": "dep-6-part-d", "label": "전도의 모범" },
+                { "value": "dep-6-part-e", "label": "Bridge Illustration" }
+            ]
+        },
+        {
+            "value":"dep-7",
+            "label":"DEP 7",
+            "children": [
+                { "value": "dep-7-part-a", "label": "주재권을 인정해야 함" },
+                { "value": "dep-7-part-b", "label": "주재권을 인정할 때의 축복" },
+                { "value": "dep-7-part-c", "label": "주재권을 인정할 영역" },
+                { "value": "dep-7-part-d", "label": "주재권을 인정한 삶의 모범" }
+            ]
+        },
+        {
+            "value": "dep-8",
+            "label": "DEP 8"
         }
     ]
 }

@@ -31,13 +31,14 @@ const GenerateTestList = ({ VerseData, packs, testCount, toShuffle, toHideRefere
 }
 
 const ArrayTester = ({ array, toHideReference, translate}) => {
-  const list = array.map((element) => (
+  const list = array.map((element, index) => (
     // key needs to be unique; chose 3 elements that will separate all elements
     <VerseValidator 
       key={element.pack + element.title + element.reference}
       element={element} 
       toHideReference={toHideReference} 
       t={translate} // this passes the t i18 object to the function
+      index={index + 1}
     />
   ))
   return list
@@ -119,7 +120,7 @@ function Page() {
 
   // initialize state variable testCount
   // purpose: to set number of verses to test
-  const [testCount, setTestCount] = useState(20)
+  const [testCount, setTestCount] = useState(30)
   const testCountChange = (e) => {
     const value = e.target.value
     setTestCount(value)
