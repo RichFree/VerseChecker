@@ -112,5 +112,8 @@
     --background-color-added: #7b4418;
   }
 
+  .VerseValidator {
+    border-top: 1px solid white; /* override for dark mode */
+  }
 }
 
