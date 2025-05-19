@@ -1,0 +1,119 @@
+.App {
+    max-width: 400px;
+}
+
+
+.VersePrinter {
+  padding-block: 1px 10px;
+  border-top: 1px solid black;
+  max-width: 400px;
+}
+
+.reference-box {
+  max-width:400px;
+  height: 5vh;
+  field-sizing: content; /* not yet implemented in firefox and safari */
+  display: block;
+  width: 99%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.chapter-title-box {
+  max-width:400px;
+  height: 5vh;
+  field-sizing: content; /* not yet implemented in firefox and safari */
+  display: block;
+  width: 99%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.title-box {
+  max-width: 400px;
+  height: 5vh;
+  field-sizing: content; /* not yet implemented in firefox and safari */
+  display: block;
+  width: 99%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.reference-label .main-title-box-label .title-box-label .verse-box-label {
+  pointer-events: none;
+}
+
+
+.verse-box {
+  max-width:400px;
+  min-height: 12vh;
+  field-sizing: content; /* not yet implemented in firefox and safari */
+  display: block;
+  width: 99%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.answer-button-box {
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.answer-box {
+  width: 80%;
+}
+
+.diff-box {
+  width: 80%;
+}
+
+
+
+@media (prefers-color-scheme: light) {
+  .correct {
+    background-color: #e6ffe6; /* Change the background color as needed */
+  } 
+
+  .partial {
+    background-color: #dafcff; /* Change the background color as needed */
+  }
+
+  .incorrect {
+    background-color: transparent; /* Change the background color as needed */
+  }
+
+  :root {
+    --background-color-removed: #f1ebb3;
+    --background-color-added: #ffd7b6;
+  }
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .correct {
+    background-color: #2e5e2e; /* Change the background color as needed */
+  }
+
+  .partial {
+    background-color: #004d5c; /* Change the background color as needed */
+  }
+
+  .incorrect {
+    background-color: transparent; /* Change the background color as needed */
+  }
+
+  :root {
+    --background-color-removed: #877e2a;
+    --background-color-added: #7b4418;
+  }
+
+  .VersePrinter {
+    border-top: 1px solid white; /* override for dark mode */
+  }
+}
+

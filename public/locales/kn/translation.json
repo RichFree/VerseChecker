@@ -5,6 +5,8 @@
         "pick_num_verses": "암송 구절 선택:",
         "num_verses_tested": "구절 수 선택:",
         "note_num_verses": "(It will only give you as many verses as there are in selected packs)",
+        "set_review": "Set Review Mode",
+        "note_set_review": "Choose between test mode (default) or review mode",
         "set_shuffle": "무작위 설정:",
         "note_set_shuffle": "(Otherwise cards will appear in sequential order)",
         "hide_reference": "Set Hide Reference:",

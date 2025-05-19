@@ -10,6 +10,7 @@ import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 import _ from 'underscore';
 import './VerseSampler.css'
 import VerseValidator from "./VerseValidator";
+import VersePrinter from "./VersePrinter";
 import { useTranslation } from 'react-i18next';
 import logo from './assets/droplet.svg';
 import { Suspense } from "react";
@@ -43,6 +44,36 @@ const ArrayTester = ({ array, toHideReference, translate}) => {
   ))
   return list
 }
+
+const GenerateReviewList = ({ VerseData, packs, testCount, toShuffle, translate}) => {
+  let testList = packs.reduce(
+                          // grab all elements included checked in "packs"
+                          (accumulator, currentValue) => accumulator.concat(VerseData[currentValue]),
+                          new Array()
+                        );
+  testList = toShuffle ? _.sample(testList, testCount) : _.first(testList, testCount);
+  return (
+    <ArrayPrinter 
+      array={testList} 
+      translate={translate}
+    />
+  )
+}
+
+const ArrayPrinter = ({ array, translate}) => {
+  const list = array.map((element, index) => (
+    // key needs to be unique; chose 3 elements that will separate all elements
+    <VersePrinter 
+      key={element.pack + element.title + element.reference}
+      element={element} 
+      t={translate} // this passes the t i18 object to the function
+      index={index + 1}
+    />
+  ))
+  return list
+}
+
+
 
 const CheckboxWidget = ({nodes, checked, expanded, setChecked, setExpanded}) => {
   return (
@@ -136,18 +167,36 @@ function Page() {
   const [toShuffle, setShuffle] = useState(false);
   // Function to handle checkbox change
   const handleShuffleCheckboxChange = () => {
-    // Toggle the state when the checkbox is changed
-    setShuffle(!toShuffle);
     // additional state change to disable HideReference when shuffling
     if (!toShuffle) {
       setHideReference(false);
     }
+    // Toggle the state when the checkbox is changed
+    // modify state at the end
+    setShuffle(!toShuffle);
   };
+
+  // state for toReview
+  const [toReview, setReview] = useState(false);
+  // Function to handle checkbox change
+  const handleReviewCheckboxChange = () => {
+  // additional state change to disable HideReference when reviewing
+    if (!toReview) {
+      setHideReference(false);
+    }
+    // Toggle the state when the checkbox is changed
+    // modify state at the end
+    setReview(!toReview);
+  };
+
 
   // state for toHideReference
   const [toHideReference, setHideReference] = useState(false);
   // Function to handle checkbox change
   const handleHideReferenceCheckboxChange = () => {
+    if (!toHideReference) {
+      setHideReference(false);
+    }
     // Toggle the state when the checkbox is changed
     setHideReference(!toHideReference);
   };
@@ -177,6 +226,17 @@ function Page() {
       <p>{t('main.note_num_verses')}</p>
 
       <h2>
+        {t('main.set_review')} 
+        <input
+          type="checkbox"
+          checked={toReview}
+          onChange={handleReviewCheckboxChange}
+        />
+      </h2>
+      <p>{t('main.note_set_review')}</p>
+
+
+      <h2>
         {t('main.set_shuffle')} 
         <input
           type="checkbox"
@@ -187,7 +247,7 @@ function Page() {
       <p>{t('main.note_set_shuffle')}</p>
 
       <div>
-        {!toShuffle ? 
+        {!(toShuffle || toReview) ? 
         <>
           <h2>
             {t('main.hide_reference')} 
@@ -222,14 +282,23 @@ function Page() {
       </div>
 
       <h1>{t('main.verses')}</h1>
-      <GenerateTestList
-        VerseData={VerseData}
-        packs={checked}
-        testCount={testCount}
-        toShuffle={toShuffle}
-        toHideReference={toHideReference}
-        translate={t}
-      />
+      {toReview ?
+        <GenerateReviewList
+          VerseData={VerseData}
+          packs={checked}
+          testCount={testCount}
+          toShuffle={toShuffle}
+          translate={t}
+        /> :
+        <GenerateTestList
+          VerseData={VerseData}
+          packs={checked}
+          testCount={testCount}
+          toShuffle={toShuffle}
+          toHideReference={toHideReference}
+          translate={t}
+        />
+      }
 
     <hr />
 

@@ -5,6 +5,8 @@
         "pick_num_verses": "Pick Number of Verses:",
         "num_verses_tested": "Number of Verses Tested:",
         "note_num_verses": "(It will only give you as many verses as there are in selected packs)",
+        "set_review": "Set Review Mode",
+        "note_set_review": "Choose between test mode (default) or review mode",
         "set_shuffle": "Set Shuffle:",
         "note_set_shuffle": "(Otherwise cards will appear in sequential order)",
         "hide_reference": "Set Hide Reference:",
