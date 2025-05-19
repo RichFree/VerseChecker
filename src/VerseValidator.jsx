@@ -71,8 +71,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
   }
 
   // function to check correctness of reference input
-  const referenceChange = (e) => {
-    const value = e.target.value;
+  const validateReference = (value) => {
     const string1 = String(value)
       .replace(/\s+/g, "")
       .toLowerCase()
@@ -84,7 +83,6 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
     
     const result = resultChecker(string1, string2);
 
-    setReference(value);
     setReferenceBool(result);
   };
 
@@ -95,11 +93,8 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
   }`;
 
 
-
-
   {/* function to check correctness of title input */}
-  const titleChange = (e) => {
-    const value = e.target.value;
+  const validateTitle = (value) => {
     let string1 = value;
     let string2 = title;
     string1 = String(string1)
@@ -114,13 +109,12 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       .toLowerCase()
       .normalize("NFC");
 
-
     const result = resultChecker(string1, string2);
-
-
-    setTitle(value);
     setTitleBool(result);
   };
+
+
+
   const titleClassName = `chapter-title-box${
     titleBool=== STATE.CORRECT ? " correct" : 
     titleBool === STATE.PARTIAL ? " partial" : 
@@ -130,10 +124,8 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
 
 
   {/* function to check correctness of chapter title input */}
-  const chapterTitleChange = (e) => {
+  const validateChapterTitle = (value) => {
 
-
-    const value = e.target.value;
     let string1 = value;
     let string2 = chapterTitle;
     string1 = String(string1)
@@ -150,9 +142,9 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
 
     const result = resultChecker(string1, string2);
 
-    setChapterTitle(value);
     setChapterTitleBool(result);
   };
+
   const chapterTitleClassName = `title-box${
     chapterTitleBool=== STATE.CORRECT ? " correct" : 
     chapterTitleBool === STATE.PARTIAL ? " partial" : 
@@ -161,8 +153,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
 
 
   // check verse input
-  const verseChange = (e) => {
-    const value = e.target.value;
+  const validateVerse = (value) => {
     let string1 = value;
     let string2 = verse;
     string1 = String(string1)
@@ -178,7 +169,6 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
 
     const result = resultChecker(string1, string2);
 
-    setVerse(value);
     setVerseBool(result);
   };
 
@@ -252,11 +242,19 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
             id="referenceBox"
             name="referenceBox"
             value={inputReference}
-            onChange={(event) => {
-              
+            onInput={(event) => {
+              const value = event.target.value;
+              setReference(value);
               if (!isComposing) {
-                referenceChange(event);
+                validateReference(value);
               }
+            }}
+            onCompositionStart={handleCompositionStart}
+            onCompositionEnd={(event) => {
+              const value = event.target.value;
+              setIsComposing(false);
+              setReference(value);
+              validateReference(value);
             }}
           />
         </div>
@@ -278,15 +276,19 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
             id="chapterTitleBox"
             name="chapterTitleBox"
             value={inputChapterTitle}
-            onChange={(event) => {
+            onInput={(event) => {
+              const value = event.target.value;
+              setChapterTitle(value);
               if (!isComposing) {
-                chapterTitleChange(event);
+                validateChapterTitle(value);
               }
             }}
             onCompositionStart={handleCompositionStart}
             onCompositionEnd={(event) => {
+              const value = event.target.value;
               setIsComposing(false);
-              chapterTitleChange(event);
+              setChapterTitle(value);
+              validateChapterTitle(value);
             }}
 
           />
@@ -303,15 +305,19 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
         id="titleBox"
         name="titleBox"
         value={inputTitle}
-        onChange={(event) => {
+        onInput={(event) => {
+          const value = event.target.value;
+          setTitle(value);
           if (!isComposing) {
-            titleChange(event);
+            validateTitle(value);
           }
         }}
         onCompositionStart={handleCompositionStart}
         onCompositionEnd={(event) => {
+          const value = event.target.value;
           setIsComposing(false);
-          titleChange(event);
+          setTitle(value);
+          validateTitle(value);
         }}
 
       />
@@ -326,15 +332,19 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
         id="verseBox"
         name="verseBox"
         value={inputVerse}
-        onChange={(event) => {
+        onInput={(event) => {
+          const value = event.target.value;
+          setVerse(value);
           if (!isComposing) {
-            verseChange(event);
+            validateVerse(value);
           }
         }}
         onCompositionStart={handleCompositionStart}
         onCompositionEnd={(event) => {
+          const value = event.target.value;
           setIsComposing(false);
-          verseChange(event);
+          setVerse(value);
+          validateVerse(value);
         }}
 
 
