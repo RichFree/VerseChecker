@@ -303,6 +303,11 @@ function Page() {
     <hr />
 
     <p><x-small> Built on: {VITE_BUILD_DATE} </x-small></p>
+    <p>
+      <x-small>
+        <a href="https://github.com/RichFree/VerseChecker/issues">File a bug report</a>
+      </x-small>
+    </p>
     </div>
   );
 }  

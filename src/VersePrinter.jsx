@@ -26,6 +26,12 @@ const VersePrinter = ({ element: { pack, title, chapterTitle, reference, verse }
 
         <p></p>
         <div>
+          <h3>Pack:</h3>
+          <p>{pack}</p>
+        </div>
+
+        <p></p>
+        <div>
           <h3>Reference:</h3>
           <p>{reference}</p>
         </div>

@@ -260,7 +260,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
         </div>
       ) : (
         <h2>
-          {pack} - {reference}
+          {reference}
         </h2>
       )}
 
@@ -362,6 +362,12 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
         <div className="diff-box">
           <h3>Differences</h3>
 
+
+          <p></p>
+          <div>
+            Pack: <br></br>{pack}
+          </div>
+
           <p></p>
           <div>
             Reference: 
@@ -371,10 +377,11 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
             />
           </div>
 
+
           <p></p>
           {chapterTitle && (
             <div>
-              ChapterTitle:
+              Chapter title:
               <DiffViewerStrict
                 oldValue={chapterTitle}
                 newValue={inputChapterTitle}
