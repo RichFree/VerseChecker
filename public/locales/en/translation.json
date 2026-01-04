@@ -90,7 +90,11 @@
                 { "value": "dep-6-part-b", "label": "Why should we witness?" },
                 { "value": "dep-6-part-c", "label": "How do we witness?" },
                 { "value": "dep-6-part-d", "label": "Examples of witness" },
-                { "value": "dep-6-part-e", "label": "Bridge Illustration" }
+                { "value": "dep-6-part-e", "label": "Bridge Illustration (Creation story)" },
+                { "value": "dep-6-part-f", "label": "Bridge Illustration (Man's condition)" },
+                { "value": "dep-6-part-g", "label": "Bridge Illustration (Salvation not by ourselves)" },
+                { "value": "dep-6-part-h", "label": "Bridge Illustration (God's solution)" },
+                { "value": "dep-6-part-i", "label": "Bridge Illustration (Man must)" }
             ]
         },
         {
