@@ -10,8 +10,10 @@
         "set_shuffle": "무작위 설정:",
         "note_set_shuffle": "(Otherwise cards will appear in sequential order)",
         "hide_reference": "Set Hide Reference:",
-        "note_hide_reference": "(If you also want to test the verse reference)",
-        "pick_pack": "Pick Your Packs:",
+        "note_hide_reference": "Check this box to hide the verse reference and test your memory on the reference as well.",
+        "live_validation": "Enable live validation",
+        "note_live_validation": "Check this box to enable live validation feedback as you type. Uncheck to only show correctness upon completion.",
+        "pick_pack": "Pick your pack(s)",
         "shuffle_card": "Shuffle Cards:",
         "verses": "Verses:"
     },

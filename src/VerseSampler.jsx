@@ -15,7 +15,7 @@ import { useTranslation } from 'react-i18next';
 import logo from './assets/droplet.svg';
 import { Suspense } from "react";
 
-const GenerateTestList = ({ VerseData, packs, testCount, toShuffle, toHideReference, translate}) => {
+const GenerateTestList = ({ VerseData, packs, testCount, toShuffle, toHideReference, liveValidation, translate}) => {
   let testList = packs.reduce(
                           // grab all elements included checked in "packs"
                           (accumulator, currentValue) => accumulator.concat(VerseData[currentValue]),
@@ -26,18 +26,20 @@ const GenerateTestList = ({ VerseData, packs, testCount, toShuffle, toHideRefere
     <ArrayTester 
       array={testList} 
       toHideReference={toHideReference} 
+      liveValidation={liveValidation}
       translate={translate}
     />
   )
 }
 
-const ArrayTester = ({ array, toHideReference, translate}) => {
+const ArrayTester = ({ array, toHideReference, liveValidation, translate}) => {
   const list = array.map((element, index) => (
     // key needs to be unique; chose 3 elements that will separate all elements
     <VerseValidator 
       key={element.pack + element.title + element.reference}
       element={element} 
       toHideReference={toHideReference} 
+      liveValidation={liveValidation}
       t={translate} // this passes the t i18 object to the function
       index={index + 1}
     />
@@ -201,6 +203,14 @@ function Page() {
     setHideReference(!toHideReference);
   };
 
+  // state for liveValidation
+  const [liveValidation, setLiveValidation] = useState(true);
+  // Function to handle checkbox change
+  const handleLiveValidationCheckboxChange = () => {
+    // Toggle the state when the checkbox is changed
+    setLiveValidation(!liveValidation);
+  };
+
 
 
   
@@ -250,7 +260,7 @@ function Page() {
         {!(toShuffle || toReview) ? 
         <>
           <h2>
-            {t('main.hide_reference')} 
+            {t('main.hide_reference')}
             <input
               type="checkbox"
               checked={toHideReference}
@@ -261,6 +271,21 @@ function Page() {
         </>:
         <p></p>}
       </div>
+
+      {!(toReview) ?
+        <>
+          <h2>
+            {t('main.live_validation')}
+            <input
+              type="checkbox"
+              checked={liveValidation}
+              onChange={handleLiveValidationCheckboxChange}
+            />
+          </h2>
+          <p>{t('main.note_live_validation')}</p>
+        </> :
+        <p></p>
+      }
 
 
       <h2>{t('main.pick_pack')}</h2>
@@ -296,6 +321,7 @@ function Page() {
           testCount={testCount}
           toShuffle={toShuffle}
           toHideReference={toHideReference}
+          liveValidation={liveValidation}
           translate={t}
         />
       }

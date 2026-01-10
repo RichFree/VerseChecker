@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./VerseValidator.css";
 import { StringDiff } from "react-string-diff";
 import { containsKorean, jamoSubstringMatch } from './utils';
@@ -12,8 +12,7 @@ const STATE = {
  
 
 // function to render and handle logic of each of the cells
-const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference, t, index}) => {  // useful use of destructuring here
-
+const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference, liveValidation, t, index}) => {  // useful use of destructuring here
   const [inputReference, setReference] = useState('')
   const [referenceBool, setReferenceBool] = useState(STATE.INCORRECT)
   const [inputChapterTitle, setChapterTitle] = useState('')
@@ -25,6 +24,15 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
   const[hintBool, setHintBool] = useState(false)
   const[diffBool, setDiffBool] = useState(false)
   const [isComposing, setIsComposing] = useState(false);
+
+  useEffect(() => {
+    // Re-run validation for all fields when liveValidation changes
+    // Using current input values to re-evaluate their state
+    validateReference(inputReference);
+    validateChapterTitle(inputChapterTitle);
+    validateTitle(inputTitle);
+    validateVerse(inputVerse);
+  }, [liveValidation]); // Dependency array: re-run effect when liveValidation changes
 
   // handle reset
   const handleReset = () => {
@@ -46,13 +54,13 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
     setIsComposing(true);
   };
 
-  function resultChecker(string1, string2) {
+  function resultChecker(string1, string2, liveValidation) {
     var result = STATE.INCORRECT; // init
     // contains korean
     if (containsKorean(string1)) {
       if (string1 === string2) {
         result = STATE.CORRECT;
-      } else if (jamoSubstringMatch(string2, string1) & string1 !== "") {
+      } else if (liveValidation && jamoSubstringMatch(string2, string1) & string1 !== "") {
         result = STATE.PARTIAL;
       } else {
         result = STATE.INCORRECT;
@@ -60,7 +68,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
     } else { // does not contain korean
       if (string1 === string2) {
         result = STATE.CORRECT;
-      } else if (string2.startsWith(string1) & string1 !== "") {
+      } else if (liveValidation && string2.startsWith(string1) & string1 !== "") {
         result = STATE.PARTIAL;
       } else {
         result = STATE.INCORRECT;
@@ -81,7 +89,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       .toLowerCase()
       .normalize("NFC");
     
-    const result = resultChecker(string1, string2);
+    const result = resultChecker(string1, string2, liveValidation);
 
     setReferenceBool(result);
   };
@@ -109,7 +117,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       .toLowerCase()
       .normalize("NFC");
 
-    const result = resultChecker(string1, string2);
+    const result = resultChecker(string1, string2, liveValidation);
     setTitleBool(result);
   };
 
@@ -140,7 +148,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       .toLowerCase()
       .normalize("NFC");
 
-    const result = resultChecker(string1, string2);
+    const result = resultChecker(string1, string2, liveValidation);
 
     setChapterTitleBool(result);
   };
@@ -167,7 +175,7 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       .toLowerCase()
       .normalize("NFC");
 
-    const result = resultChecker(string1, string2);
+    const result = resultChecker(string1, string2, liveValidation);
 
     setVerseBool(result);
   };
@@ -178,21 +186,6 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
     " incorrect"
   }`;
 
-
-  // const DiffViewer = ({oldValue, newValue}) => {
-  //   const string1 = String(oldValue)
-  //     .replace(/[\p{P}\p{S}]/gu, "")
-  //     .toLowerCase()
-  //     .normalize("NFC");
-
-
-  //   const string2 = String(newValue)
-  //     .replace(/[\p{P}\p{S}]/gu, "")
-  //     .toLowerCase()
-  //     .normalize("NFC");
-
-  //   return (<StringDiff oldValue={string1} newValue={string2} diffMethod="diffWords" />)
-  // }
 
   const DiffViewerStrict = ({oldValue, newValue}) => {
     const string1 = String(oldValue)
