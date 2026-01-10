@@ -17,11 +17,13 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     fallbackLng: 'en',
+    supportedLngs: ['en', 'kn'],
     detection: { // adds some caching
-      order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
-      caches: ['localStorage', 'cookie'],
+      order: ['querystring', 'cookie', 'navigator', 'htmlTag', 'path', 'subdomain'],
+      caches: ['cookie'], // Removed 'localStorage' to address Vivaldi mobile issue, kept 'cookie'
+      load: 'languageOnly'
     },
-    debug: true,
+    debug: false,
   });
 
 export default i18n;
