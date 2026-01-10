@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./VerseValidator.css";
 import { StringDiff } from "react-string-diff";
 import { containsKorean, jamoSubstringMatch } from './utils';
@@ -12,7 +12,7 @@ const STATE = {
  
 
 // function to render and handle logic of each of the cells
-const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference, liveValidation, t, index}) => {  // useful use of destructuring here
+const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference, liveValidation, clearKey, t, index}) => {  // useful use of destructuring here
   const [inputReference, setReference] = useState('')
   const [referenceBool, setReferenceBool] = useState(STATE.INCORRECT)
   const [inputChapterTitle, setChapterTitle] = useState('')
@@ -21,9 +21,18 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
   const [titleBool, setTitleBool] = useState(STATE.INCORRECT)
   const [inputVerse, setVerse] = useState('')
   const [verseBool, setVerseBool] = useState(STATE.INCORRECT)
-  const[hintBool, setHintBool] = useState(false)
-  const[diffBool, setDiffBool] = useState(false)
+  const [hintBool, setHintBool] = useState(false)
+  const [diffBool, setDiffBool] = useState(false)
   const [isComposing, setIsComposing] = useState(false);
+  const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      handleReset();
+    }
+  }, [clearKey]);
 
   useEffect(() => {
     // Re-run validation for all fields when liveValidation changes

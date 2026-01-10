@@ -28,3 +28,20 @@
     color: black;
   }
 }
+
+.setting-disabled {
+  opacity: 0.5;
+}
+
+.tool-bar {
+  display: flex;
+  gap: 10px; /* Adjust as needed */
+  align-items: center;
+}
+
+.lang-bar {
+  display: flex;
+  gap: 10px; /* Adjust as needed */
+  align-items: center;
+}
+

@@ -14,7 +14,7 @@
         "live_validation": "Enable live validation",
         "note_live_validation": "Check this box to enable live validation feedback as you type. Uncheck to only show correctness upon completion.",
         "pick_pack": "Pick your pack(s)",
-        "shuffle_card": "Shuffle Cards:",
+        "tools": "Tools:",
         "verses": "Verses:"
     },
     "verse_validator": {

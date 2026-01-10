@@ -16,7 +16,7 @@ import logo from './assets/droplet.svg';
 import { Suspense } from "react";
 
 
-const ArrayTester = ({ array, toHideReference, liveValidation, translate}) => {
+const ArrayTester = ({ array, toHideReference, liveValidation, clearKey, translate}) => {
   const list = array.map((element, index) => (
     // key needs to be unique; chose 3 elements that will separate all elements
     <VerseValidator 
@@ -24,6 +24,7 @@ const ArrayTester = ({ array, toHideReference, liveValidation, translate}) => {
       element={element} 
       toHideReference={toHideReference} 
       liveValidation={liveValidation}
+      clearKey={clearKey} // Pass clearKey down
       t={translate} // this passes the t i18 object to the function
       index={index + 1}
     />
@@ -82,14 +83,20 @@ const loadCustomData = (language) => {
 function Page() {
 
   // refresh button for refresh
-  const RefreshButton = ({ onClick }) => {
-    return <button onClick={onClick}>Shuffle</button>;
+  const RefreshButton = ({ onClick, disabled }) => {
+    return <button onClick={onClick} disabled={disabled}>Shuffle</button>;
   };
   // refresh variables where incrementing state forces refresh
-  const [refreshKey, setRefreshKey] = useState(0);
-  const handleRefresh = () => {
+  const [shuffleKey, setShuffleKey] = useState(0);
+  const handleShuffle = () => {
     // Increment the key to force a re-render
-    setRefreshKey(refreshKey => refreshKey + 1);
+    setShuffleKey(shuffleKey => shuffleKey + 1);
+  };
+
+  // New state for clearing all inputs
+  const [clearKey, setClearKey] = useState(0);
+  const handleClearAll = () => {
+    setClearKey(clearKey => clearKey + 1);
   };
 
   // setup i18 for function
@@ -191,7 +198,7 @@ function Page() {
       []
     );
     return toShuffle ? _.sample(list, testCount) : _.first(list, testCount);
-  }, [VerseData, checked, testCount, toShuffle, refreshKey]);
+  }, [VerseData, checked, testCount, toShuffle, shuffleKey]);
 
 
   
@@ -199,8 +206,12 @@ function Page() {
     <div className="App">
       <h1>{t('main.title')}</h1>
       <h2>{t('main.pick_lang')}</h2>
-      <button type="button" onClick={() => changeLanguage('en')}>English</button>
-      <button type="button" onClick={() => changeLanguage('kn')}>Korean</button>
+
+      <div className="lang-bar">
+        <button type="button" onClick={() => changeLanguage('en')}>English</button>
+        <button type="button" onClick={() => changeLanguage('kn')}>Korean</button>
+      </div>
+
       <h2>{t('main.pick_num_verses')}</h2>
       <label className="test-count-box-label" htmlFor="testCountBox">
         {t('main.num_verses_tested')}
@@ -237,36 +248,31 @@ function Page() {
       </h2>
       <p>{t('main.note_set_shuffle')}</p>
 
-      <div>
-        {!(toShuffle || toReview) ? 
-        <>
-          <h2>
-            {t('main.hide_reference')}
-            <input
-              type="checkbox"
-              checked={toHideReference}
-              onChange={handleHideReferenceCheckboxChange}
-            />
-          </h2>
-          <p>{t('main.note_hide_reference')}</p> 
-        </>:
-        <p></p>}
+      <div className={(toShuffle || toReview) ? 'setting-disabled' : ''}>
+        <h2>
+          {t('main.hide_reference')}
+          <input
+            type="checkbox"
+            checked={toHideReference}
+            onChange={handleHideReferenceCheckboxChange}
+            disabled={toShuffle || toReview}
+          />
+        </h2>
+        <p>{t('main.note_hide_reference')}</p>
       </div>
 
-      {!(toReview) ?
-        <>
-          <h2>
-            {t('main.live_validation')}
-            <input
-              type="checkbox"
-              checked={liveValidation}
-              onChange={handleLiveValidationCheckboxChange}
-            />
-          </h2>
-          <p>{t('main.note_live_validation')}</p>
-        </> :
-        <p></p>
-      }
+      <div className={toReview ? 'setting-disabled' : ''}>
+        <h2>
+          {t('main.live_validation')}
+          <input
+            type="checkbox"
+            checked={liveValidation}
+            onChange={handleLiveValidationCheckboxChange}
+            disabled={toReview}
+          />
+        </h2>
+        <p>{t('main.note_live_validation')}</p>
+      </div>
 
 
       <h2>{t('main.pick_pack')}</h2>
@@ -278,13 +284,10 @@ function Page() {
         setExpanded={setExpanded}
       />
 
-      <div key={refreshKey}>
-        {toShuffle ? 
-        <>
-          <h2>{t('main.shuffle_card')}</h2>
-          <RefreshButton onClick={handleRefresh} />
-        </>: 
-        <p></p>}
+      <h2>{t('main.tools')}</h2>
+      <div className="tool-bar">
+        <RefreshButton onClick={handleShuffle} disabled={!toShuffle} />
+        <button onClick={handleClearAll}>Clear All</button>
       </div>
 
       <h1>{t('main.verses')}</h1>
@@ -297,6 +300,7 @@ function Page() {
           array={testList}
           toHideReference={toHideReference}
           liveValidation={liveValidation}
+          clearKey={clearKey} // Pass clearKey down
           translate={t}
         />
       }
