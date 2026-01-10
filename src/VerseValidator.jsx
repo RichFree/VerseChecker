@@ -12,7 +12,7 @@ const STATE = {
  
 
 // function to render and handle logic of each of the cells
-const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference, liveValidation, clearKey, t, index}) => {  // useful use of destructuring here
+const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference, liveValidation, clearKey, t, index, onShowAnswer}) => {  // useful use of destructuring here
   const [inputReference, setReference] = useState('')
   const [referenceBool, setReferenceBool] = useState(STATE.INCORRECT)
   const [inputChapterTitle, setChapterTitle] = useState('')
@@ -355,7 +355,15 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
       {/* button to toggle show answer*/}
       <div className="answer-button-box">
         {/* <button onClick={() => setHintBool(!hintBool)}>Show Answer:</button> */}
-        <button onClick={() => setDiffBool(!diffBool)}>Show Answer:</button>
+        <button onClick={() => {
+            // Toggle the diff display
+            setDiffBool(prev => !prev);
+            // If it's being turned ON, and onShowAnswer is provided, call it.
+            // We only want to count when the user explicitly reveals the answer.
+            if (!diffBool && onShowAnswer) {
+                onShowAnswer({ pack, title, reference });
+            }
+        }}>Show Answer:</button>
         <button onClick={handleReset}>Reset</button>
       </div>
 

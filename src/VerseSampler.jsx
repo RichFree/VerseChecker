@@ -4,7 +4,7 @@ Implemented features:
 - create checklist from keys
 */
 import fullVerseData from "./assets/verse.json" // the actual verse json data file
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import CheckboxTree from 'react-checkbox-tree';
 import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 import _ from 'underscore';
@@ -16,7 +16,7 @@ import logo from './assets/droplet.svg';
 import { Suspense } from "react";
 
 
-const ArrayTester = ({ array, toHideReference, liveValidation, clearKey, translate}) => {
+const ArrayTester = ({ array, toHideReference, liveValidation, clearKey, translate, onShowAnswer}) => {
   const list = array.map((element, index) => (
     // key needs to be unique; chose 3 elements that will separate all elements
     <VerseValidator 
@@ -27,6 +27,7 @@ const ArrayTester = ({ array, toHideReference, liveValidation, clearKey, transla
       clearKey={clearKey} // Pass clearKey down
       t={translate} // this passes the t i18 object to the function
       index={index + 1}
+      onShowAnswer={onShowAnswer}
     />
   ))
   return list
@@ -98,6 +99,18 @@ function Page() {
   const handleClearAll = () => {
     setClearKey(clearKey => clearKey + 1);
   };
+
+  // New state for tracking problem verses within the session
+  const [sessionProblemVerses, setSessionProblemVerses] = useState({});
+
+  // Callback for when 'Show Answer' is clicked in VerseValidator
+  const handleShowAnswer = useCallback((verseIdentifier) => {
+    const key = `${verseIdentifier.pack}|${verseIdentifier.reference}`;
+    setSessionProblemVerses(prev => ({
+        ...prev,
+        [key]: (prev[key] || 0) + 1
+    }));
+  }, []);
 
   // setup i18 for function
   const { t, i18n } = useTranslation();
@@ -199,6 +212,11 @@ function Page() {
     );
     return toShuffle ? _.sample(list, testCount) : _.first(list, testCount);
   }, [VerseData, checked, testCount, toShuffle, shuffleKey]);
+
+  // Reset session problem verses when the testList changes (new session)
+  useEffect(() => {
+    setSessionProblemVerses({});
+  }, [testList]);
 
 
   
@@ -302,8 +320,24 @@ function Page() {
           liveValidation={liveValidation}
           clearKey={clearKey} // Pass clearKey down
           translate={t}
+          onShowAnswer={handleShowAnswer}
         />
       }
+
+      {Object.keys(sessionProblemVerses).length > 0 && (
+        <div className="session-problem-verses">
+            <h2>{t('main.problem_verses_session')}</h2>
+            <ul>
+                {Object.entries(sessionProblemVerses)
+                    .sort(([, countA], [, countB]) => countB - countA) // Sort by count in descending order
+                    .map(([key, count]) => {
+                    // Assuming key format is "pack:reference"
+                    const [pack, reference] = key.split('|');
+                    return <li key={key}>{reference} (Shown Answer: {count} time{count > 1 ? 's' : ''})</li>;
+                })}
+            </ul>
+        </div>
+      )}
 
     <hr />
 

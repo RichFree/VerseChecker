@@ -15,7 +15,8 @@
         "note_live_validation": "Check this box to enable live validation feedback as you type. Uncheck to only show correctness upon completion.",
         "pick_pack": "Pick your pack(s)",
         "tools": "Tools:",
-        "verses": "Verses:"
+        "verses": "Verses:",
+        "problem_verses_session": "Statistics (This Session):"
     },
     "verse_validator": {
         "input_reference": "Input Verse Reference: ",
