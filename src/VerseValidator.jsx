@@ -9,10 +9,18 @@ const STATE = {
   CORRECT: 2,
 };
 
- 
 
 // function to render and handle logic of each of the cells
-const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse } , toHideReference, liveValidation, clearKey, t, index, onShowAnswer}) => {  // useful use of destructuring here
+const VerseValidator = (
+  { element: 
+    { pack, title, chapterTitle, reference, verse },
+    toHideReference,
+    liveValidation,
+    clearKey,
+    t,
+    index,
+    onShowAnswer
+  }) => {  // useful use of destructuring here
   const [inputReference, setReference] = useState('')
   const [referenceBool, setReferenceBool] = useState(STATE.INCORRECT)
   const [inputChapterTitle, setChapterTitle] = useState('')
@@ -25,6 +33,12 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
   const [diffBool, setDiffBool] = useState(false)
   const [isComposing, setIsComposing] = useState(false);
   const isInitialMount = useRef(true);
+
+  // State for hint word counts
+  const [referenceHintCount, setReferenceHintCount] = useState(0);
+  const [titleHintCount, setTitleHintCount] = useState(0);
+  const [chapterTitleHintCount, setChapterTitleHintCount] = useState(0);
+  const [verseHintCount, setVerseHintCount] = useState(0);
 
   useEffect(() => {
     if (isInitialMount.current) {
@@ -54,6 +68,12 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
     setVerse('');
     setVerseBool(STATE.INCORRECT);
     setDiffBool(false); // optionally hide answer again
+    setHintBool(false);
+    // Reset hint counts
+    setReferenceHintCount(0);
+    setTitleHintCount(0);
+    setChapterTitleHintCount(0);
+    setVerseHintCount(0);
   };
 
 
@@ -259,6 +279,19 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
               validateReference(value);
             }}
           />
+          {hintBool && (
+            <div className="hint-area">
+              <p className="hint-text">
+                Hint: {reference.split(' ').slice(0, referenceHintCount).join(' ')}
+              </p>
+              <button
+                onClick={() => setReferenceHintCount(prev => prev + 1)}
+                disabled={referenceHintCount >= reference.split(' ').length}
+              >
+                Next Word
+              </button>
+            </div>
+          )}
         </div>
       ) : (
         <h2>
@@ -292,69 +325,112 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
               setChapterTitle(value);
               validateChapterTitle(value);
             }}
-
           />
+          {hintBool && (
+            <div className="hint-area">
+              <p className="hint-text">
+                Hint: {chapterTitle.split(' ').slice(0, chapterTitleHintCount).join(' ')}
+              </p>
+              <button
+                onClick={() => setChapterTitleHintCount(prev => prev + 1)}
+                disabled={chapterTitleHintCount >= chapterTitle.split(' ').length}
+              >
+                Next Word
+              </button>
+            </div>
+          )}
         </div>
       )}
 
       {/* input box for title */}
-      <label className="title-box-label">
-        {t('verse_validator.input_title')} 
-      </label>
-      <textarea
-        className={titleClassName}
-        type="text"
-        id="titleBox"
-        name="titleBox"
-        value={inputTitle}
-        onInput={(event) => {
-          const value = event.target.value;
-          setTitle(value);
-          if (!isComposing) {
+      <div>
+        <label className="title-box-label">
+          {t('verse_validator.input_title')} 
+        </label>
+        <textarea
+          className={titleClassName}
+          type="text"
+          id="titleBox"
+          name="titleBox"
+          value={inputTitle}
+          onInput={(event) => {
+            const value = event.target.value;
+            setTitle(value);
+            if (!isComposing) {
+              validateTitle(value);
+            }
+          }}
+          onCompositionStart={handleCompositionStart}
+          onCompositionEnd={(event) => {
+            const value = event.target.value;
+            setIsComposing(false);
+            setTitle(value);
             validateTitle(value);
-          }
-        }}
-        onCompositionStart={handleCompositionStart}
-        onCompositionEnd={(event) => {
-          const value = event.target.value;
-          setIsComposing(false);
-          setTitle(value);
-          validateTitle(value);
-        }}
-
-      />
+          }}
+        />
+        {hintBool && (
+          <div className="hint-area">
+            <p className="hint-text">
+              Hint: {title.split(' ').slice(0, titleHintCount).join(' ')}
+            </p>
+            <button
+              onClick={() => setTitleHintCount(prev => prev + 1)}
+              disabled={titleHintCount >= title.split(' ').length}
+            >
+              Next Word
+            </button>
+          </div>
+        )}
+      </div>
 
       {/* input box for verse */}
-      <label className="verse-box-label">
-        {t('verse_validator.input_verse')} 
-      </label>
-      <textarea
-        className={verseClassName}
-        type="text"
-        id="verseBox"
-        name="verseBox"
-        value={inputVerse}
-        onInput={(event) => {
-          const value = event.target.value;
-          setVerse(value);
-          if (!isComposing) {
+      <div>
+        <label className="verse-box-label">
+          {t('verse_validator.input_verse')} 
+        </label>
+        <textarea
+          className={verseClassName}
+          type="text"
+          id="verseBox"
+          name="verseBox"
+          value={inputVerse}
+          onInput={(event) => {
+            const value = event.target.value;
+            setVerse(value);
+            if (!isComposing) {
+              validateVerse(value);
+            }
+          }}
+          onCompositionStart={handleCompositionStart}
+          onCompositionEnd={(event) => {
+            const value = event.target.value;
+            setIsComposing(false);
+            setVerse(value);
             validateVerse(value);
-          }
-        }}
-        onCompositionStart={handleCompositionStart}
-        onCompositionEnd={(event) => {
-          const value = event.target.value;
-          setIsComposing(false);
-          setVerse(value);
-          validateVerse(value);
-        }}
+          }}
+        />
+        {hintBool && (
+          <div className="hint-area">
+            <p className="hint-text">
+              Hint: {verse.split(' ').slice(0, verseHintCount).join(' ')}
+            </p>
+            <button
+              onClick={() => setVerseHintCount(prev => prev + 1)}
+              disabled={verseHintCount >= verse.split(' ').length}
+            >
+              Next Word
+            </button>
+          </div>
+        )}
+      </div>
 
-
-      />
-
-      {/* button to toggle show answer*/}
-      <div className="answer-button-box">
-        {/* <button onClick={() => setHintBool(!hintBool)}>Show Answer:</button> */}
+      {/* buttons to toggle per-block functionality*/}
+      <div className="verse-validator-button-box">
+        {/* hint button*/}
+        <button onClick={() => setHintBool(!hintBool)}>
+            {hintBool ? 'Hide Hints' : 'Show Hints'}
+        </button>
+        {/* show answer button*/}
         <button onClick={() => {
             // Toggle the diff display
             setDiffBool(prev => !prev);
@@ -363,7 +439,8 @@ const VerseValidator = ({ element: { pack, title, chapterTitle, reference, verse
             if (!diffBool && onShowAnswer) {
                 onShowAnswer({ pack, title, reference });
             }
-        }}>Show Answer:</button>
+        }}>Show Answer</button>
+        {/* reset button*/}
         <button onClick={handleReset}>Reset</button>
       </div>
 
