@@ -4,7 +4,7 @@ Implemented features:
 - create checklist from keys
 */
 import fullVerseData from "./assets/verse.json" // the actual verse json data file
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import CheckboxTree from 'react-checkbox-tree';
 import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 import _ from 'underscore';
@@ -15,22 +15,6 @@ import { useTranslation } from 'react-i18next';
 import logo from './assets/droplet.svg';
 import { Suspense } from "react";
 
-const GenerateTestList = ({ VerseData, packs, testCount, toShuffle, toHideReference, liveValidation, translate}) => {
-  let testList = packs.reduce(
-                          // grab all elements included checked in "packs"
-                          (accumulator, currentValue) => accumulator.concat(VerseData[currentValue]),
-                          new Array()
-                        );
-  testList = toShuffle ? _.sample(testList, testCount) : _.first(testList, testCount);
-  return (
-    <ArrayTester 
-      array={testList} 
-      toHideReference={toHideReference} 
-      liveValidation={liveValidation}
-      translate={translate}
-    />
-  )
-}
 
 const ArrayTester = ({ array, toHideReference, liveValidation, translate}) => {
   const list = array.map((element, index) => (
@@ -47,20 +31,6 @@ const ArrayTester = ({ array, toHideReference, liveValidation, translate}) => {
   return list
 }
 
-const GenerateReviewList = ({ VerseData, packs, testCount, toShuffle, translate}) => {
-  let testList = packs.reduce(
-                          // grab all elements included checked in "packs"
-                          (accumulator, currentValue) => accumulator.concat(VerseData[currentValue]),
-                          new Array()
-                        );
-  testList = toShuffle ? _.sample(testList, testCount) : _.first(testList, testCount);
-  return (
-    <ArrayPrinter 
-      array={testList} 
-      translate={translate}
-    />
-  )
-}
 
 const ArrayPrinter = ({ array, translate}) => {
   const list = array.map((element, index) => (
@@ -74,7 +44,6 @@ const ArrayPrinter = ({ array, translate}) => {
   ))
   return list
 }
-
 
 
 const CheckboxWidget = ({nodes, checked, expanded, setChecked, setExpanded}) => {
@@ -211,6 +180,18 @@ function Page() {
     setLiveValidation(!liveValidation);
   };
 
+  // generate testList using cached state that depends only on shuffle-dependent variables
+  // this fixes the bug where changing other state causes a re-shuffle
+  const testList = useMemo(() => {
+    if (!VerseData || checked.length === 0) {
+      return [];
+    }
+    let list = checked.reduce(
+      (accumulator, currentValue) => accumulator.concat(VerseData[currentValue]),
+      []
+    );
+    return toShuffle ? _.sample(list, testCount) : _.first(list, testCount);
+  }, [VerseData, checked, testCount, toShuffle, refreshKey]);
 
 
   
@@ -308,18 +289,12 @@ function Page() {
 
       <h1>{t('main.verses')}</h1>
       {toReview ?
-        <GenerateReviewList
-          VerseData={VerseData}
-          packs={checked}
-          testCount={testCount}
-          toShuffle={toShuffle}
+        <ArrayPrinter
+          array={testList}
           translate={t}
         /> :
-        <GenerateTestList
-          VerseData={VerseData}
-          packs={checked}
-          testCount={testCount}
-          toShuffle={toShuffle}
+        <ArrayTester
+          array={testList}
           toHideReference={toHideReference}
           liveValidation={liveValidation}
           translate={t}
